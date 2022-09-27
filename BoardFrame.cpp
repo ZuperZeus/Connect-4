@@ -12,6 +12,7 @@ BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string 
 	frameColor=fcol;
 	selectedColor=selcol;
 	winColor=wincol;
+	reset="\e[0m";
 	boardPieces=bpieces;
 	selected=-1;
 	winbool=false;
@@ -19,7 +20,20 @@ BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string 
 void BoardFrame::move(int x)
 {
 	//TODO: add moving
-	selected=sel;
+	if(x==3)
+	{
+		if(selected<=0)
+			selected=6;
+		else
+			selected--;
+	}
+	else if(x==4)
+	{
+		if(selected>=6)
+			selected=0;
+		else
+			selected ++;
+	}
 }
 void BoardFrame::updateFrame()
 {
@@ -88,11 +102,11 @@ string BoardFrame::center(int size)
 	for(int i=0;i<(cols-size)/2;i++) res+=" ";
 	return res;
 }
-void BoardFrame::win(vector<int> xwinvec, vector<int> ywinvec)
+void BoardFrame::win(vector< vector<int> > winvec)
 {
 	winbool=true;
-	xwin=xwinvec;
-	ywin=ywinvec;
+	xwin=winvec[0];
+	ywin=winvec[1];
 }
 void BoardFrame::printFrame(int col, int row)
 {
@@ -101,23 +115,27 @@ void BoardFrame::printFrame(int col, int row)
 		cols=col;
 		rows=row;
 		system("clear");
-		updateBoard(cols,rows);
-		string cen=center(cols,board[0].size());
+		updateFrame();
+		string cen=center(board[0].size());
 		for(int i=0;i<board.size();i++)
 		{
 			cout<<cen;
 			for(int j=0;j<board[i].size();j++)
 			{
 				//cout<<board[i][j];
-				if(board[i][j]==0) cout<<defaultColor;
-				else if(board[i][j]==1) cout<<player1Color;
-				else if(board[i][j]==2) cout<<player2Color;
-				else if(board[i][j]==3) cout<<frameColor;
-				else if(board[i][j]==4) cout<<selectedColor;
-				else if(board[i][j]==5) cout<<winColor;
+				if(board[i][j]==0) cout<<defaultColor<<" "<<reset;
+				else if(board[i][j]==1) cout<<player1Color<<" "<<reset;
+				else if(board[i][j]==2) cout<<player2Color<<" "<<reset;
+				else if(board[i][j]==3) cout<<frameColor<<" "<<reset;
+				else if(board[i][j]==4) cout<<selectedColor<<" "<<reset;
+				else if(board[i][j]==5) cout<<winColor<<" "<<reset;
 			}
 			cout<<endl;
 		}
 		system("tput civis");
 	}
+}
+int main()
+{
+
 }

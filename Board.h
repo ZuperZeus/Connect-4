@@ -12,8 +12,10 @@ class Board
 		Board();
 		Board(vector< vector<int> > arr);
 		bool drop(int sel, int player);
-		bool checkWin();
+		bool canDrop(int sel);
+		int checkWin();
 		vector< vector<int> > getWin();
+		int getInmWin(int team);
 		vector< vector<int> > getBoard();
 };
 #endif

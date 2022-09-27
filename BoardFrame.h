@@ -17,18 +17,19 @@ class BoardFrame : Frame
 		string frameColor;
 		string selectedColor;
 		string winColor;
+		string reset;
 		int selected;
 		bool winbool;
 		vector<int>xwin;
 		vector<int>ywin;
-		void updateFrame(int columns, int rows);
-		string center(int columns, int size);
+		void updateFrame();
+		string center(int size);
 	public:
 		BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, string def, vector< vector<int> > bpieces);
 		void move(int x);
 		void sel();
 		Frame esc();
-		void win(vector<int> xwinvec, vector<int> ywinvec);
+		void win(vector< vector<int> > winvec);
 		void printFrame(int columns, int rows);
 };
 #endif

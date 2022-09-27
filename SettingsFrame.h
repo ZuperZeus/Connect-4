@@ -3,9 +3,9 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
-#include "Frame"
+#include "Frame.h"
 using namespace std;
-class Settings : Frame
+class SettingsFrame : Frame
 {
 	private:
 		int rows;
@@ -17,12 +17,13 @@ class Settings : Frame
 		void updateFrame();
 		string center(int size);
 		void save();
+		void change(int val, int newint);
 	public:
-		Settings();
-		vector<string> optionstr;
+		SettingsFrame();
+		~SettingsFrame();
 		void move(int x);
 		void sel();
-		Frame esc();
-		void printFrame(int col, int row)
+		//Frame esc();
+		void printFrame(int col, int row);
 };
 #endif
