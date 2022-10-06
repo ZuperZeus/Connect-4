@@ -18,5 +18,6 @@ Stacks and Queues will be used to save some moves and settings.
 <img src="./MindMap.svg">
 
 
-This diagram shows the first frame (in black), current frame options (green), and frames (cyan). As we can see, the user starts with 4 options, 3 of which ideally start a game, and the last one just lets you configure colors.
-All green options will be chosen by arrows and enter, while cyan options will be chosen via enter, or Backspace in the case of PauseFrame.
+### This diagram shows Frames in blue, options in green
+This diagram shows the first frame (in black), current frame options (green), and frames (blue). As we can see, the user starts with 4 options, 3 of which ideally start a game, and the last one just lets you configure colors.
+All green options will be chosen by arrows and enter, while blue options will be chosen via enter, or Backspace in the case of PauseFrame.
