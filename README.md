@@ -13,6 +13,10 @@ Threads will be used to run the min-max algorithm.
 Files will be used to store previous settings, and any saved games.
 Exceptions will be detected and, if the program is unable to continue, game will be saved. Vectors will be used to store and show the board.
 Stacks and Queues will be used to save some moves and settings.
+
+
 <img src="./MindMap.svg">
+
+
 This diagram shows the first frame (in black), current frame options (green), and frames (cyan). As we can see, the user starts with 4 options, 3 of which ideally start a game, and the last one just lets you configure colors.
 All green options will be chosen by arrows and enter, while cyan options will be chosen via enter, or Backspace in the case of PauseFrame.
