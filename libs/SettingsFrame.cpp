@@ -22,7 +22,6 @@ SettingsFrame::SettingsFrame()
 		options[i]=(int)in.get()-'0';
 	in.close();
 }
-SettingsFrame::~SettingsFrame()=default;
 void SettingsFrame::change(int val, int newint)
 {
 	options[val]=newint;
@@ -47,10 +46,10 @@ void SettingsFrame::sel()
 {
 
 }
-//Frame SettingsFrame::esc()
-//{
-//	return this;
-//}
+Frame SettingsFrame::esc()
+{
+	return *this;
+}
 /*
  * Menu Structure: 
  * SETTINGS
@@ -70,9 +69,3 @@ void SettingsFrame::printFrame(int col, int row)
 	cout<<center(col)<<options[3]<<"\e[30m  Settings   \e[0m"<<endl;
 	cout<<center(col)<<options[3]<<"            \e[0m"<<endl;
 }
-int main()
-{
-	SettingsFrame s;
-	s.printFrame(200,100);
-}
-

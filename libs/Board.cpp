@@ -345,5 +345,15 @@ vector< vector<int> > Board::getWin()
 }
 vector< vector<int> > Board::getBoard()
 {
-	return board;
+	vector< vector<int> > temp;
+	temp.resize(7);
+	for(int i=0;i<7;i++)
+	{
+		temp[i].resize(6);
+		for(int j=0;j<6;j++)
+		{
+			temp[i][j]=board[j][i];
+		}
+	}
+	return temp;
 }

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "Frame.h"
+#include "Board.h"
 using namespace std;
 class BoardFrame : Frame
 {
@@ -10,7 +11,7 @@ class BoardFrame : Frame
 		int rows;
 		int cols;
 		vector< vector<int> > board;		//0=empty; 1=p1; 2=p2; 3=frame; 4=selected; 5=win
-		vector< vector<int> > boardPieces;	//(7,vector<int>(6,0)); //0=empty; 1=p1; 2=p2
+		Board boardBackend;	//(7,vector<int>(6,0)); //0=empty; 1=p1; 2=p2
 		string player1Color;
 		string player2Color;
 		string defaultColor;
@@ -25,7 +26,8 @@ class BoardFrame : Frame
 		void updateFrame();
 		string center(int size);
 	public:
-		BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, string def, vector< vector<int> > bpieces);
+		BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, string def, Board bpieces);
+		~BoardFrame()=default;
 		void move(int x);
 		void sel();
 		Frame esc();

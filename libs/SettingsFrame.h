@@ -20,10 +20,10 @@ class SettingsFrame : Frame
 		void change(int val, int newint);
 	public:
 		SettingsFrame();
-		~SettingsFrame();
+		~SettingsFrame()=default;
 		void move(int x);
 		void sel();
-		//Frame esc();
+		Frame esc();
 		void printFrame(int col, int row);
 };
 #endif

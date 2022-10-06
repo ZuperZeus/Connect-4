@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 #include "BoardFrame.h"
+#include "Board.h"
 using namespace std;
-BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, string def, vector< vector<int> > bpieces)
+BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, string def, Board bpieces)
 {
 	rows=0;
 	cols=0;
@@ -13,13 +14,13 @@ BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string 
 	selectedColor=selcol;
 	winColor=wincol;
 	reset="\e[0m";
-	boardPieces=bpieces;
+	boardBackend=bpieces;
 	selected=-1;
 	winbool=false;
 }
 void BoardFrame::move(int x)
 {
-	//TODO: add moving
+	//TODO: add animation
 	if(x==3)
 	{
 		if(selected<=0)
@@ -35,8 +36,17 @@ void BoardFrame::move(int x)
 			selected ++;
 	}
 }
+void BoardFrame::sel()
+{
+
+}
+Frame BoardFrame::esc()
+{
+	return *this;
+}
 void BoardFrame::updateFrame()
 {
+	vector< vector<int> > boardPieces=boardBackend.getBoard();
 	int columnLength=cols-2-(cols-2)%7;
 	int rowLength=rows-1-(rows-1)%6;
 	columnLength-=columnLength%2;
@@ -110,11 +120,11 @@ void BoardFrame::win(vector< vector<int> > winvec)
 }
 void BoardFrame::printFrame(int col, int row)
 {
+	vector< vector<int> > boardPieces=boardBackend.getBoard();
 	if(cols!=col||rows!=row)
 	{
 		cols=col;
 		rows=row;
-		system("clear");
 		updateFrame();
 		string cen=center(board[0].size());
 		for(int i=0;i<board.size();i++)
@@ -132,10 +142,5 @@ void BoardFrame::printFrame(int col, int row)
 			}
 			cout<<endl;
 		}
-		system("tput civis");
 	}
-}
-int main()
-{
-
 }

@@ -3,18 +3,25 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+//printf "\e[?1049h\e[;Hhello world"; sleep 1; printf "\e[?1049l"
+//         ^enter  ^ go to                               ^exit
+//         alt        top                                 alt
+//         buffer     left                                buffer
 class Frame
 {
 	private:
 		int rows;
 		int cols;
-		virtual void updateFrame();
-		virtual string center(int size);
+		virtual void updateFrame(){};
+		virtual string center(int size){return "";};
 	public:
-		virtual ~Frame();
-		virtual void move(int x); //1=up;2=down;3=left;4=right;5=select;6=esc
-		virtual void sel();
-		//virtual Frame esc();
-		virtual void printFrame(int col, int row);
+		static void newBuffer();
+		static void upperLeft();
+		static void delBuffer();
+		~Frame()=default;
+		virtual void move(int x){}; //1=up;2=down;3=left;4=right;5=select;6=esc
+		virtual void sel(){};
+		virtual Frame esc(){return *this;};
+		virtual void printFrame(int col, int row){};
 };
 #endif
