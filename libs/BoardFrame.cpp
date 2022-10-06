@@ -17,6 +17,7 @@ BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string 
 	boardBackend=bpieces;
 	selected=-1;
 	winbool=false;
+	currplay=1;
 }
 void BoardFrame::move(int x)
 {
@@ -35,10 +36,15 @@ void BoardFrame::move(int x)
 		else
 			selected ++;
 	}
-}
-void BoardFrame::sel()
-{
-
+	else if(x==5)
+	{
+		if(selected!=-1)
+		{
+			boardBackend.drop(selected,currplay);
+			currplay=3-currplay;
+			selected=-1;
+		}
+	}
 }
 Frame BoardFrame::esc()
 {
@@ -125,22 +131,22 @@ void BoardFrame::printFrame(int col, int row)
 	{
 		cols=col;
 		rows=row;
-		updateFrame();
-		string cen=center(board[0].size());
-		for(int i=0;i<board.size();i++)
+	}
+	updateFrame();
+	string cen=center(board[0].size());
+	for(int i=0;i<board.size();i++)
+	{
+		cout<<cen;
+		for(int j=0;j<board[i].size();j++)
 		{
-			cout<<cen;
-			for(int j=0;j<board[i].size();j++)
-			{
-				//cout<<board[i][j];
-				if(board[i][j]==0) cout<<defaultColor<<" "<<reset;
-				else if(board[i][j]==1) cout<<player1Color<<" "<<reset;
-				else if(board[i][j]==2) cout<<player2Color<<" "<<reset;
-				else if(board[i][j]==3) cout<<frameColor<<" "<<reset;
-				else if(board[i][j]==4) cout<<selectedColor<<" "<<reset;
-				else if(board[i][j]==5) cout<<winColor<<" "<<reset;
-			}
-			cout<<endl;
+			Frame::upperLeft;
+			if(board[i][j]==0) cout<<defaultColor<<" "<<reset;
+			else if(board[i][j]==1) cout<<player1Color<<" "<<reset;
+			else if(board[i][j]==2) cout<<player2Color<<" "<<reset;
+			else if(board[i][j]==3) cout<<frameColor<<" "<<reset;
+			else if(board[i][j]==4) cout<<selectedColor<<" "<<reset;
+			else if(board[i][j]==5) cout<<winColor<<" "<<reset;
 		}
+		cout<<endl;
 	}
 }

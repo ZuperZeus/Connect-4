@@ -7,18 +7,71 @@
 #include "libs/SettingsFrame.h"
 #include "libs/Frame.h"
 #include "libs/Board.h"
-#include "libs/ActionListener.h"
+#include "libs/KeyListener.h"
+#include "libs/TermListener.h"
 using namespace std;
+Frame *frame;
+int lastPressed;
+int currPlayer;
+bool returnToTerm;
+void *keys(void *arg)
+{
+	KeyListener kl;
+	while(true)
+	{
+		int x=kl.getKey();
+		if(x!=0)
+			lastPressed=x;
+	}
+	pthread_exit(NULL);
+}
+void *term(void *arg)
+{
+	TermListener tl;
+	pair<int,int> size;
+	while(true)
+	{
+		if(size!=tl.getSize())
+		{
+			system("clear");
+			size=tl.getSize();
+			frame->printFrame(size.first,size.second);
+		}
+		if(lastPressed!=0)
+		{
+			if(lastPressed==6)
+			{
+			//	Frame temp=frame->esc();
+			//	frame=&temp;
+				returnToTerm=true;
+				pthread_exit(NULL);
+			}
+			else
+			{
+				frame->move(lastPressed);
+			}
+			system("clear");
+			lastPressed=0;
+			frame->printFrame(size.first,size.second);
+		}
+	}
+	pthread_exit(NULL);
+}
 int main()
 {
-	system("tput civis");
+	lastPressed=0;
+	currPlayer=1;
+	returnToTerm=false;
 	Board bp;
-	BoardFrame b("\e[101m","\e[103m","\e[44m","\e[104m","\e[102m","",bp);
+	BoardFrame bf("\e[101m","\e[103m","\e[44m","\e[104m","\e[102m","",bp);
+	frame=&bf;
+	system("tput civis");
 	Frame::newBuffer();
-	Frame::upperLeft();
-	b.printFrame(56,133);
-	system("sleep 1");
+	pthread_t key_thread;
+	pthread_t term_thread;
+	pthread_create(&key_thread,NULL,&keys,NULL);
+	pthread_create(&term_thread,NULL,&term,NULL);
+	while(!returnToTerm){}
 	Frame::delBuffer();
 	system("tput cvvis");
 }
-

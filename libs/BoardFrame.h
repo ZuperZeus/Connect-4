@@ -5,7 +5,7 @@
 #include "Frame.h"
 #include "Board.h"
 using namespace std;
-class BoardFrame : Frame
+class BoardFrame : public Frame
 {
 	private:
 		int rows;
@@ -26,10 +26,10 @@ class BoardFrame : Frame
 		void updateFrame();
 		string center(int size);
 	public:
+		int currplay;
 		BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, string def, Board bpieces);
 		~BoardFrame()=default;
 		void move(int x);
-		void sel();
 		Frame esc();
 		void win(vector< vector<int> > winvec);
 		void printFrame(int columns, int rows);

@@ -5,7 +5,7 @@
 #include <fstream>
 #include "Frame.h"
 using namespace std;
-class SettingsFrame : Frame
+class SettingsFrame : public Frame
 {
 	private:
 		int rows;
@@ -22,7 +22,6 @@ class SettingsFrame : Frame
 		SettingsFrame();
 		~SettingsFrame()=default;
 		void move(int x);
-		void sel();
 		Frame esc();
 		void printFrame(int col, int row);
 };

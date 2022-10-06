@@ -4,7 +4,7 @@
 #include <termios.h>
 #define STDIN_FILENO 0
 using namespace std;
-class ActionListener
+class KeyListener
 {
 	private:
 		// Black magic to prevent Linux from buffering keystrokes.
@@ -12,7 +12,7 @@ class ActionListener
 		char x;
 		string clear="\r                 \r";
 	public:
-		ActionListener();
+		KeyListener();
 		int getKey();
 };
 #endif

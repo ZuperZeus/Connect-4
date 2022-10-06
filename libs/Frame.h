@@ -20,8 +20,8 @@ class Frame
 		static void delBuffer();
 		~Frame()=default;
 		virtual void move(int x){}; //1=up;2=down;3=left;4=right;5=select;6=esc
-		virtual void sel(){};
 		virtual Frame esc(){return *this;};
-		virtual void printFrame(int col, int row){};
+		virtual void printFrame(int col, int row){cout<<"running this";};
+		void printFrame(){printFrame(cols,rows);};
 };
 #endif

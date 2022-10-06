@@ -42,10 +42,6 @@ void SettingsFrame::move(int x)
 {
 
 }
-void SettingsFrame::sel()
-{
-
-}
 Frame SettingsFrame::esc()
 {
 	return *this;
@@ -65,6 +61,7 @@ void SettingsFrame::updateFrame()
 }
 void SettingsFrame::printFrame(int col, int row)
 {
+	Frame::upperLeft;
 	cout<<center(col)<<options[3]<<"            \e[0m"<<endl;
 	cout<<center(col)<<options[3]<<"\e[30m  Settings   \e[0m"<<endl;
 	cout<<center(col)<<options[3]<<"            \e[0m"<<endl;
