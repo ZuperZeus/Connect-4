@@ -1,7 +1,7 @@
 # Connect 4
 ## This project will be a C++ implementation of the classic board game 4 in a row.
-It will have a menu to choose colors and shapes, using ANSI escape codes. These colors will also be useful to do some simple animations, and indicate wins and losses.
-In the start menu you will be presented with a few options, namely 2v2, play against AI (using a minmax algorithm), and settings.
+It will have a menu to choose colors and shapes using ANSI escape codes. These colors will also be useful to do some simple animations, and indicate wins and losses.
+In the start menu you will be presented with a few options, namely 2v2, play against AI (using a minmax algorithm), load saved games, and settings.
 
 It will be made in Linux, written in C++ 11, and compiled with G++ 11.3.1
 Options for moving will be (UP,DOWN,LEFT,RIGHT) and (W,A,S,D).
@@ -21,9 +21,9 @@ Stacks and Queues will be used to save some moves and settings.
 <img src="./MindMap.svg">
 
 
-### This diagram shows Frames in blue, options in green
+## This diagram shows Frames in blue, options in green
 This diagram shows the first frame (in black), current frame options (green), and frames (blue). As we can see, the user starts with 4 options, 3 of which ideally start a game, and the last one just lets you configure colors.
 
 All green options will be chosen by arrows and enter, while blue options will be chosen via enter, or Backspace in the case of PauseFrame.
 
-[github link](https://github.com/ZuperZeus/Connect-4/)
+[Github link](https://github.com/ZuperZeus/Connect-4/)
