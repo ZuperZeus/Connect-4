@@ -26,8 +26,8 @@
      units="px"
      height="1024px"
      inkscape:zoom="0.7"
-     inkscape:cx="518.57143"
-     inkscape:cy="618.57143"
+     inkscape:cx="520"
+     inkscape:cy="535.71429"
      inkscape:window-width="1920"
      inkscape:window-height="1007"
      inkscape:window-x="0"
@@ -435,6 +435,13 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="fill:#ffffff;stroke-width:3.9"
+       id="rect1257"
+       width="1024"
+       height="1024"
+       x="0"
+       y="0" />
     <path
        style="fill:#00ff00;stroke:#000000;stroke-width:3.9;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleOutL-1-4-5-3)"
        d="m 649.55899,661.517 22.9795,60.85266"
@@ -564,7 +571,7 @@
        transform="scale(1,-1)"
        ry="28.546961" />
     <rect
-       style="fill:#00ffff;stroke:none;stroke-width:0.3"
+       style="fill:#0000ff;stroke:none;stroke-width:0.3"
        id="rect879-7-3-2"
        width="114.18112"
        height="57.093922"
@@ -573,7 +580,7 @@
        transform="scale(1,-1)"
        ry="28.546961" />
     <rect
-       style="fill:#00ffff;stroke:none;stroke-width:0.3"
+       style="fill:#0000ff;stroke:none;stroke-width:0.3"
        id="rect879-7-3-2-6"
        width="114.18112"
        height="57.093922"
@@ -582,7 +589,7 @@
        transform="scale(1,-1)"
        ry="28.546961" />
     <rect
-       style="fill:#00ffff;stroke:none;stroke-width:0.3"
+       style="fill:#0000ff;stroke:none;stroke-width:0.3"
        id="rect879-7-3-2-9"
        width="114.18112"
        height="57.093922"
@@ -591,7 +598,7 @@
        transform="scale(1,-1)"
        ry="28.546961" />
     <rect
-       style="fill:#00ffff;stroke:none;stroke-width:0.3"
+       style="fill:#0000ff;stroke:none;stroke-width:0.3"
        id="rect879-7-3-2-9-1"
        width="114.18112"
        height="57.093922"
@@ -601,7 +608,7 @@
        ry="28.546961" />
     <text
        xml:space="preserve"
-       style="font-size:14.5068px;fill:#000000;stroke:none;stroke-width:0.3"
+       style="font-size:14.5068px;fill:#ffffff;stroke:none;stroke-width:0.3"
        x="633.36493"
        y="773.97479"
        id="text32481-9"
@@ -610,7 +617,7 @@
          id="tspan32479-3"
          x="633.36493"
          y="773.97479"
-         style="stroke-width:0.3">SettingsFrame</tspan></text>
+         style="stroke-width:0.3;fill:#ffffff">SettingsFrame</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:33.764px;fill:#000000;stroke:none;stroke-width:0.3"
@@ -810,7 +817,7 @@
          style="stroke-width:0.3">Winner color</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:14.5068px;fill:#000000;stroke:none;stroke-width:0.3"
+       style="font-size:14.5068px;fill:#ffffff;stroke:none;stroke-width:0.3"
        x="462.10886"
        y="348.99771"
        id="text32481"
@@ -819,10 +826,10 @@
          id="tspan32479"
          x="462.10886"
          y="348.99771"
-         style="stroke-width:0.3">BoardFrame</tspan></text>
+         style="stroke-width:0.3;fill:#ffffff">BoardFrame</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:14.5068px;fill:#000000;stroke:none;stroke-width:0.3"
+       style="font-size:14.5068px;fill:#ffffff;stroke:none;stroke-width:0.3"
        x="456.28653"
        y="242.67706"
        id="text32481-0"
@@ -831,10 +838,10 @@
          id="tspan32479-6"
          x="456.28653"
          y="242.67706"
-         style="stroke-width:0.3">PauseFrame</tspan></text>
+         style="stroke-width:0.3;fill:#ffffff">PauseFrame</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:14.5068px;fill:#000000;stroke:none;stroke-width:0.3"
+       style="font-size:14.5068px;fill:#ffffff;stroke:none;stroke-width:0.3"
        x="271.65234"
        y="806.93817"
        id="text32481-7"
@@ -843,7 +850,7 @@
          id="tspan32479-0"
          x="271.65234"
          y="806.93817"
-         style="stroke-width:0.3">ResumeFrame</tspan></text>
+         style="stroke-width:0.3;fill:#ffffff">ResumeFrame</tspan></text>
     <rect
        style="fill:#00ff00;stroke:none;stroke-width:0.3"
        id="rect45730"
@@ -1037,7 +1044,7 @@
        d="m 536.87908,564.76411 29.96353,41.09342"
        id="path68897-5-6-9" />
     <rect
-       style="fill:#000000;stroke:none;stroke-width:0.3"
+       style="fill:#0000ff;stroke:none;stroke-width:0.3"
        id="rect879-7-3-2-9-2"
        width="114.18112"
        height="57.093922"
