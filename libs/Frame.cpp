@@ -13,3 +13,11 @@ void Frame::delBuffer()
 {
 	cout<<"\e[?1049l";
 }
+void Frame::clear()
+{
+	upperLeft();
+	cout<<"\r";
+	for(int i=0;i<rows*cols;i++)
+		cout<<" ";
+	upperLeft();
+}

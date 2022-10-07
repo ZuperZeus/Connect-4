@@ -21,7 +21,11 @@ void *keys(void *arg)
 	{
 		int x=kl.getKey();
 		if(x!=0)
+		{
 			lastPressed=x;
+			if(x==6)
+				pthread_exit(NULL);
+		}
 	}
 	pthread_exit(NULL);
 }
@@ -33,7 +37,6 @@ void *term(void *arg)
 	{
 		if(size!=tl.getSize())
 		{
-			system("clear");
 			size=tl.getSize();
 			frame->printFrame(size.first,size.second);
 		}
@@ -50,7 +53,6 @@ void *term(void *arg)
 			{
 				frame->move(lastPressed);
 			}
-			system("clear");
 			lastPressed=0;
 			frame->printFrame(size.first,size.second);
 		}
@@ -64,9 +66,13 @@ int main()
 	returnToTerm=false;
 	Board bp;
 	BoardFrame bf("\e[101m","\e[103m","\e[44m","\e[104m","\e[102m","",bp);
-	frame=&bf;
+	SettingsFrame sf;
+	//frame=&bf;
+	frame=&sf;
 	system("tput civis");
 	Frame::newBuffer();
+	//frame->printFrame(50,50);
+	//system("sleep 5");
 	pthread_t key_thread;
 	pthread_t term_thread;
 	pthread_create(&key_thread,NULL,&keys,NULL);

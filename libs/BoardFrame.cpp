@@ -132,6 +132,7 @@ void BoardFrame::printFrame(int col, int row)
 		cols=col;
 		rows=row;
 	}
+	this->clear();
 	updateFrame();
 	string cen=center(board[0].size());
 	for(int i=0;i<board.size();i++)

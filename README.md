@@ -1,7 +1,7 @@
 # Connect 4
 ## This project will be a C++ implementation of the classic board game 4 in a row.
 
-Connect Four (also known as Connect 4, Four Up, Plot Four, Find Four, Captain's Mistress, Four in a Row, Drop Four, and Gravitrips in the Soviet Union) is a two-player connection board game, in which the players choose a color and then take turns dropping colored tokens into a seven-column, six-row vertically suspended grid. The pieces fall straight down, occupying the lowest available space within the column. The objective of the game is to be the first to form a horizontal, vertical, or diagonal line of four of one's own tokens. Connect Four is a solved game. The first player can always win by playing the right moves. [source](https://en.wikipedia.org/wiki/Connect_Four)
+Connect Four (also known as Connect 4, Four Up, Plot Four, Find Four, Captain's Mistress, Four in a Row, Drop Four, and Gravitrips in the Soviet Union) is a two-player connection board game, in which the players choose a color and then take turns dropping colored tokens into a seven-column, six-row vertically suspended grid. The pieces fall straight down, occupying the lowest available space within the column. The objective of the game is to be the first to form a horizontal, vertical, or diagonal line of four of one's own tokens. Connect Four is a solved game. The first player can always win by playing the right moves. [source](https./img//en.wikipedia.or./img/wik./img/Connect_Four)
 
 It will have a menu to choose colors and shapes using ANSI escape codes. These colors will also be useful to do some simple animations, and indicate wins and losses.
 In the start menu you will be presented with a few options, namely 2v2, play against AI (using a minmax algorithm), load saved games, and settings.
@@ -21,7 +21,7 @@ Stacks and Queues will be used to save some moves and settings.
 
 
 ## This diagram shows Frames in blue, options in green
-<img src="./MindMap.svg">
+<img src="./img/MindMap.svg">
 
 
 This diagram shows the first frame (in black), current frame options (green), and frames (blue). As we can see, the user starts with 4 options, 3 of which ideally start a game, and the last one just lets you configure colors.
@@ -29,11 +29,11 @@ All green options will be chosen by arrows and enter, while blue options will be
 
 
 ## This is an example of the interface in konsole
-<img src="./interface.png">
+<img src="./img/interface.png">
 
 
 ###### *it is resizable*
-<img src="./small_interface.png">
+<img src="./img/small_interface.png">
 
 
-[Github link](https://github.com/ZuperZeus/Connect-4/)
+[Github link](https./img//github.co./img/ZuperZeu./img/Connect-./img/)

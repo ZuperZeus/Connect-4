@@ -14,6 +14,7 @@ class SettingsFrame : public Frame
 		ifstream in;
 		ofstream out;
 		vector<string> indexedcolors;
+		string reset;
 		void updateFrame();
 		string center(int size);
 		void save();

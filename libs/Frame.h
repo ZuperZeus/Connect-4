@@ -18,6 +18,7 @@ class Frame
 		static void newBuffer();
 		static void upperLeft();
 		static void delBuffer();
+		void clear();
 		~Frame()=default;
 		virtual void move(int x){}; //1=up;2=down;3=left;4=right;5=select;6=esc
 		virtual Frame esc(){return *this;};
