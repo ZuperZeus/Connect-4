@@ -11,6 +11,8 @@ class SettingsFrame : public Frame
 		int rows;
 		int cols;
 		vector<int> options;
+		int selX;
+		int selY;
 		ifstream in;
 		ofstream out;
 		vector<string> indexedcolors;
