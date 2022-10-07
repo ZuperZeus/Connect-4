@@ -33,6 +33,7 @@ All green options will be chosen by arrows and enter, while blue options will be
 
 
 <sup>it is resizable</sup>
+
 <img src="./img/small_interface.png">
 
 
