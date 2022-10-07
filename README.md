@@ -32,7 +32,7 @@ All green options will be chosen by arrows and enter, while blue options will be
 <img src="./img/interface.png">
 
 
-###### <sup>it is resizable</sup>
+<sup>it is resizable</sup>
 <img src="./img/small_interface.png">
 
 
