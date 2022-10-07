@@ -68,8 +68,8 @@ void SettingsFrame::printFrame(int col, int row)
 		cols=col;
 		rows=row;
 	}
+	//this->clear();
 	this->clear();
-	//cout<<"\e[107mHello\e[0m"<<endl;
 	string fcol=indexedcolors[options[3]];
 	cout<<endl;
 	cout<<center(11)<<fcol<<"            "<<reset<<endl;

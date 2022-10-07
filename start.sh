@@ -10,8 +10,10 @@ xfn()
 	exit
 }
 trap "xfn" INT
+echo "Running"
 ./Main
-trap SIGINT
 echo "Finished running"
+trap SIGINT
+echo "Removing Main"
 rm ./Main
 echo "Removed Main"
