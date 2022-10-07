@@ -35,7 +35,7 @@ These are frames (blue bubbles in the mind map) which are practically finished
 
 <img src="./img/BoardFrame.png">
 
-<sup>it is resizable</sup>
+<sup>it is _resizable_</sup>
 
 <img src="./img/small_BoardFrame.png">
 
@@ -43,7 +43,7 @@ These are frames (blue bubbles in the mind map) which are practically finished
 
 <img src="./img/SettingsFrame.png">
 
-<sup>'tis also resizable</sup>
+<sup>'tis _also_ resizable</sup>
 
 <img src="./img/small_SettingsFrame.png">
 
