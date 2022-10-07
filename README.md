@@ -32,5 +32,8 @@ All green options will be chosen by arrows and enter, while blue options will be
 <img src="./interface.png">
 
 
+###### *it is resizeable*
+<img src="./small_interface.png">
+
 
 [Github link](https://github.com/ZuperZeus/Connect-4/)
