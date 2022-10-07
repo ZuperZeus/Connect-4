@@ -28,13 +28,20 @@ This diagram shows the first frame (in black), current frame options (green), an
 All green options will be chosen by arrows and enter, while blue options will be chosen via enter, or Backspace in the case of PauseFrame.
 
 
-## This is an example of the interface in konsole
-<img src="./img/interface.png">
+# Current Completed Frames
+These are frames (blue bubbles in the mind map) which are practically finished
 
+## BoardFrame
+
+<img src="./img/BoardFrame.png">
 
 <sup>it is resizable</sup>
 
 <img src="./img/small_interface.png">
+
+## SettingsFrame
+
+<img src="./img/SettingsFrame.png">
 
 
 [Github link](https./img//github.co./img/ZuperZeu./img/Connect-./img/)
