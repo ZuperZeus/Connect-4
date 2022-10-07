@@ -37,7 +37,7 @@ These are frames (blue bubbles in the mind map) which are practically finished
 
 <sup>it is resizable</sup>
 
-<img src="./img/small_interface.png">
+<img src="./img/small_BoardFrame.png">
 
 ## SettingsFrame
 
