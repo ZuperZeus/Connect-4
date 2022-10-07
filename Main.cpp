@@ -68,7 +68,7 @@ int main()
 	BoardFrame bf("\e[101m","\e[103m","\e[44m","\e[104m","\e[102m","",bp);
 	SettingsFrame sf;
 	//frame=&bf;
-	frame=&bf;
+	frame=&sf;
 	system("tput civis");
 	Frame::newBuffer();
 	pthread_t key_thread;

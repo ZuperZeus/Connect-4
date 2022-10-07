@@ -17,6 +17,7 @@ SettingsFrame::SettingsFrame()
 	options.resize(6);
 	indexedcolors={"\e[101m","\e[48;5;208m","\e[103m","\e[102m","\e[106m","\e[104m","\e[105m","\e[107m","\e[100m","\e[40m"};
 	reset="\e[0m";
+	framestring="";
 	string tmp="";
 	in.open("libs/txt/settings.txt",ios::in);
 	for(int i=0;i<6;i++)
@@ -59,7 +60,47 @@ Frame SettingsFrame::esc()
  */
 void SettingsFrame::updateFrame()
 {
+	string title;
+	if(cols>=70)
+	{
+		title="\n"+
+		center(70)+"\e[48;5;82;30m                                                                      \e[0m\n"+
+		center(70)+"\e[48;5;46;30m   #####   #######  #######  #######  ###  #     #   #####    #####   \e[0m\n"+
+		center(70)+"\e[48;5;47;30m  #     #  #           #        #      #   ##    #  #     #  #     #  \e[0m\n"+
+		center(70)+"\e[48;5;48;30m  #        #           #        #      #   # #   #  #        #        \e[0m\n"+
+		center(70)+"\e[48;5;49;30m   #####   #####       #        #      #   #  #  #  #  ####   #####   \e[0m\n"+
+		center(70)+"\e[48;5;50;30m        #  #           #        #      #   #   # #  #     #        #  \e[0m\n"+
+		center(70)+"\e[48;5;51;30m  #     #  #           #        #      #   #    ##  #     #  #     #  \e[0m\n"+
+		center(70)+"\e[48;5;87;30m   #####   #######     #        #     ###  #     #   #####    #####   \e[0m\n"+
+		center(70)+"\e[48;5;123;30m                                                                      \e[0m\n";
 
+	}
+	else if(cols>=40)
+	{
+		title="\n"+
+		center(40)+"\e[48;5;46;30m  ____       _   _   _                  \e[0m\n"+
+		center(40)+"\e[48;5;47;30m / ___|  ___| |_| |_(_)_ __   __ _ ___  \e[0m\n"+
+		center(40)+"\e[48;5;48;30m \\___ \\ / _ \\ __| __| | '_ \\ / _` / __| \e[0m\n"+
+		center(40)+"\e[48;5;49;30m  ___) |  __/ |_| |_| | | | | (_| \\__ \\ \e[0m\n"+
+		center(40)+"\e[48;5;50;30m |____/ \\___|\\__|\\__|_|_| |_|\\__, |___/ \e[0m\n"+
+		center(40)+"\e[48;5;51;30m                             |___/      \e[0m\n";
+	}
+	else if(cols>=20)
+	{
+		title="\n"+
+		center(20)+"\e[48;5;46;30m __                 \e[0m\n"+
+		center(20)+"\e[48;5;48;30m(_  __|__|_o._  _  _\e[0m\n"+
+		center(20)+"\e[48;5;49;30m__)(/_|_ |_|| |(_|_>\e[0m\n"+
+		center(20)+"\e[48;5;51;30m                _|  \e[0m\n";
+	}
+	else
+	{
+		title="\n"+
+		center(12)+"\e[48;5;46;30m            \e[0m\n"+
+		center(12)+"\e[48;5;48;30m  Settings  \e[0m\n"+
+		center(12)+"\e[48;5;51;30m            \e[0m\n";
+	}
+	framestring=title;
 }
 void SettingsFrame::printFrame(int col, int row)
 {
@@ -68,12 +109,8 @@ void SettingsFrame::printFrame(int col, int row)
 		cols=col;
 		rows=row;
 	}
-	//this->clear();
+	updateFrame();
 	this->clear();
-	string fcol=indexedcolors[options[3]];
-	cout<<endl;
-	cout<<center(11)<<fcol<<"            "<<reset<<endl;
-	cout<<center(11)<<fcol<<"\e[30m  Settings  "<<reset<<endl;
-	cout<<center(11)<<fcol<<"            "<<reset<<endl;
+	cout<<framestring;
 	//cout<<center()<<"Choose Ai Difficulty"<<endl;
 }
