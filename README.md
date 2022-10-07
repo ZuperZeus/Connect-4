@@ -43,5 +43,9 @@ These are frames (blue bubbles in the mind map) which are practically finished
 
 <img src="./img/SettingsFrame.png">
 
+<sup>'tis also resizable</sup>
+
+<img src="./img/small_SettingsFrame.png">
+
 
 [Github link](https./img//github.co./img/ZuperZeu./img/Connect-./img/)
