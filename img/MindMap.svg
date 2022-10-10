@@ -25,9 +25,9 @@
      showgrid="false"
      units="px"
      height="1024px"
-     inkscape:zoom="1.0963383"
-     inkscape:cx="464.27275"
-     inkscape:cy="347.52047"
+     inkscape:zoom="0.67597365"
+     inkscape:cx="452.68037"
+     inkscape:cy="575.46622"
      inkscape:window-width="1920"
      inkscape:window-height="1007"
      inkscape:window-x="0"
@@ -920,15 +920,15 @@
     <text
        xml:space="preserve"
        style="font-size:33.764px;fill:#000000;stroke:none;stroke-width:0.3"
-       x="355.17685"
-       y="455.55371"
+       x="354.42679"
+       y="455.33115"
        id="text7028"
-       transform="scale(0.99997059,1.0000294)"><tspan
+       transform="scale(0.9999706,1.0000294)"><tspan
          sodipodi:role="line"
          id="tspan7026"
-         x="355.17685"
-         y="455.55371"
-         style="stroke-width:0.3">2v2</tspan></text>
+         x="354.42679"
+         y="455.33115"
+         style="stroke-width:0.3">1v1</tspan></text>
     <rect
        style="fill:#00ff00;stroke:none;stroke-width:0.3"
        id="rect879-7-5"
@@ -943,21 +943,21 @@
        id="rect879-7-5-6"
        width="114.18112"
        height="57.093922"
-       x="562.83911"
-       y="-671.41284"
+       x="599.99481"
+       y="-192.47557"
        ry="28.546961"
        transform="scale(1,-1)" />
     <text
        xml:space="preserve"
        style="font-size:65.394px;fill:#000000;stroke:none;stroke-width:0.3"
        x="595.45831"
-       y="466.86035"
+       y="466.86032"
        id="text13104"
-       transform="scale(0.99997059,1.0000294)"><tspan
+       transform="scale(0.9999706,1.0000294)"><tspan
          sodipodi:role="line"
          id="tspan13102"
          x="595.45831"
-         y="466.86035"
+         y="466.86032"
          style="stroke-width:0.3">AI</tspan></text>
     <text
        xml:space="preserve"
@@ -979,14 +979,14 @@
     <text
        xml:space="preserve"
        style="font-size:21.4803px;fill:#000000;stroke:none;stroke-width:0.3"
-       x="575.71271"
-       y="648.77289"
+       x="612.86975"
+       y="169.84975"
        id="text25583"
-       transform="scale(0.99997059,1.0000294)"><tspan
+       transform="scale(0.9999706,1.0000294)"><tspan
          sodipodi:role="line"
          id="tspan25581"
-         x="575.71271"
-         y="648.77289"
+         x="612.86975"
+         y="169.84975"
          style="stroke-width:0.3">Settings</tspan></text>
     <rect
        style="fill:#00ff00;stroke:none;stroke-width:0.3"
@@ -1261,18 +1261,18 @@
     <text
        xml:space="preserve"
        style="font-size:16.5218px;fill:#000000;stroke:none;stroke-width:0.3"
-       x="622.99213"
-       y="159.75702"
+       x="622.99219"
+       y="159.75703"
        id="text45734-6-5-1-2"
-       transform="scale(0.99997059,1.0000294)"><tspan
+       transform="scale(0.9999706,1.0000294)"><tspan
          sodipodi:role="line"
-         x="622.99213"
-         y="159.75702"
+         x="622.99219"
+         y="159.75703"
          style="stroke-width:0.3"
          id="tspan65845-6">Exit to</tspan><tspan
          sodipodi:role="line"
-         x="622.99213"
-         y="180.40927"
+         x="622.99219"
+         y="180.40929"
          style="stroke-width:0.3"
          id="tspan67460">Terminal</tspan></text>
     <rect
