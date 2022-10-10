@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "BoardFrame.h"
+#include "SettingsFrame.h"
 #include "Board.h"
 using namespace std;
 BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, string def, Board bpieces)
@@ -36,7 +37,7 @@ void BoardFrame::move(int x)
 		else
 			selected ++;
 	}
-	else if(x==5)
+	else if(x==5||x==2)
 	{
 		if(selected!=-1)
 		{
@@ -48,7 +49,8 @@ void BoardFrame::move(int x)
 }
 Frame BoardFrame::esc()
 {
-	return *this;
+	SettingsFrame sf;
+	return sf;
 }
 void BoardFrame::updateFrame()
 {

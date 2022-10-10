@@ -17,13 +17,4 @@ void Frame::clear()
 {
 	upperLeft();
 	cout<<"\e[2J";
-	/*upperLeft();
-	cout<<"\r";
-	for(int i=0;i<rows;i++)
-	{
-		for(int i=0;i<cols;i++)
-			cout<<" ";
-		cout<<endl;
-	}
-	upperLeft();*/
 }
