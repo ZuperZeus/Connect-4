@@ -36,3 +36,55 @@ void Frame::clear()
 	upperLeft();
 	cout<<"\e[2J";
 }
+string Frame::center(string text, int sz)
+{    
+	string res="";    
+	for(int i=0;i<(cols-sz)/2;i++) res+=" ";
+	return res+text;    
+}
+bool Frame::updateSize(int col,int row)
+{
+	if(row==rows&&col==cols)
+		return false;
+	cout<<"updating";
+	cols=col;
+	rows=row;
+	return true;
+}
+void Frame::move(int x)
+{
+	//1=up;2=down;3=left;4=right
+	if(x==1)
+		if(sel.second==-1)
+			sel.second=xSize-1;
+		else if(sel.second==0)
+			sel.second=xSize-1;
+		else
+			sel.second-=1;
+	else if(x==2)
+		if(sel.second==-1)
+			sel.second=0;
+		else if(sel.second==xSize-1)
+			sel.second=0;
+		else
+			sel.second+=1;
+	else if(x==3)
+		if(sel.first==-1)
+			sel.first=ySize-1;
+		else if(sel.first==0)
+			sel.first=ySize-1;
+		else
+			sel.first-=1;
+	else if(x==4)
+		if(sel.first==-1)
+			sel.first=0;
+		else if(sel.first==ySize-1)
+			sel.first=0;
+		else
+			sel.first+=1;
+}
+void Frame::printFrame(int col, int row)
+{
+	updateSize(col,row);
+	printFrame();
+}

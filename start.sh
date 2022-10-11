@@ -27,19 +27,21 @@ xfn()
 }
 trap "xfn" INT
 echo "Compiling"
-printf ".................................]\r["
+printf "...............................................]\r["
 g++ -o Main Main.cpp libs/*.cpp &
 while [[ -e /proc/$! ]]
 do
 	printf "#"
 	sleep .1
 done
-printf "\r[################################]"
-echo ""
-echo "Compile done!"
-echo "Running"
-./Main
-echo "Finished running"
-echo "Removing Main"
-rm ./Main
-echo "Removed Main"
+printf "\r[##############################################]\n"
+if [[ -e ./Main ]]
+then
+	echo "Compile done!"
+	echo "Running"
+	./Main
+	echo "Finished running"
+	echo "Removing Main"
+	rm ./Main
+	echo "Removed Main"
+fi

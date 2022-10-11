@@ -28,19 +28,24 @@ using namespace std;
 class Frame
 {
 	private:
-		int rows;
-		int cols;
 		virtual void updateFrame(){};
-		virtual string center(int size){return "";};
+		bool updateSize(int row, int col);
 	public:
+		int rows=0;
+		int cols=0;
+		int xSize;
+		int ySize;
+		pair<int,int> sel=make_pair(-1,-1);
+		string center(string text, int sz);
 		static void newBuffer();
 		static void upperLeft();
 		static void delBuffer();
 		void clear();
 		~Frame()=default;
-		virtual void move(int x){}; //1=up;2=down;3=left;4=right;5=select;6=esc
-		virtual Frame esc(){return *this;};
-		virtual void printFrame(int col, int row){cout<<"running this";};
-		void printFrame(){printFrame(cols,rows);};
+		void move(int x); //1=up;2=down;3=left;4=right;5=select;6=esc
+		virtual Frame * select(){return this;};
+		virtual Frame * esc(){return this;};
+		void printFrame(int col, int row);
+		virtual void printFrame(){cout<<"hola";};
 };
 #endif

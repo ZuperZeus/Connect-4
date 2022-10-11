@@ -22,29 +22,35 @@
 #include <vector>
 #include <fstream>
 #include "Frame.h"
+#include "BoardFrame.h"
 using namespace std;
 class SettingsFrame : public Frame
 {
 	private:
-		int rows;
-		int cols;
+		//int rows;
+		//int cols;
 		vector<int> options;
-		int selX;
-		int selY;
+		vector<string> indexedcolors;
+		//int selX;
+		//int selY;
 		ifstream in;
 		ofstream out;
-		vector<string> indexedcolors;
 		string reset;
 		string framestring;
 		void updateFrame();
-		string center(int size);
+	//	string center(int size);
 		void save();
-		void change(int val, int newint);
+	//	void change(int val, int newint);
 	public:
 		SettingsFrame();
 		~SettingsFrame()=default;
-		void move(int x);
-		Frame esc();
-		void printFrame(int col, int row);
+	//	void move(int x);
+		Frame * select();
+		Frame * esc();
+		static BoardFrame * getDefaultBoardFrameAI();
+		static BoardFrame * getDefaultBoardFrame();
+		//static BoardFrame * getSavedBoardFrameAI(int x);
+		//static BoardFrame * getSavedBoardFrame(int x);
+		void printFrame();
 };
 #endif

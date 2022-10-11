@@ -23,6 +23,7 @@
 #include <algorithm>
 #include "libs/BoardFrame.h"
 #include "libs/SettingsFrame.h"
+#include "libs/StartFrame.h"
 #include "libs/Frame.h"
 #include "libs/Board.h"
 #include "libs/KeyListener.h"
@@ -62,10 +63,13 @@ void *term(void *arg)
 		{
 			if(lastPressed==6)
 			{
-		//		Frame temp=frame->esc();
-		//		frame=&temp;
-				returnToTerm=true;
-				pthread_exit(NULL);
+				frame=frame->esc();
+				//returnToTerm=true;
+				//pthread_exit(NULL);
+			}
+			else if(lastPressed==5)
+			{
+				frame=frame->select();
 			}
 			else
 			{
@@ -83,9 +87,13 @@ int main()
 	currPlayer=1;
 	returnToTerm=false;
 	Board bp;
-	BoardFrame bf("\e[101m","\e[103m","\e[44m","\e[104m","\e[102m","",bp);
+	BoardFrame bf("\e[101m","\e[103m","\e[44m","\e[104m","\e[102m",bp,false,1);
 	SettingsFrame sf=SettingsFrame();
-	frame=&sf;
+	StartFrame st=StartFrame();
+	frame = &bf;
+	//frame=&f;
+	//frame=&sf;
+	//frame=&fsf;
 	system("tput civis");
 	Frame::newBuffer();
 	pthread_t key_thread;

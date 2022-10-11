@@ -69,8 +69,7 @@ int KeyListener::getKey()
 	}
 	else
 	{
-		cout<<clear;
-		cout<<(int)x<<endl;
+		cout<<clear<<endl;
 	}
 		return 0;
 }
