@@ -90,7 +90,7 @@ int main()
 	BoardFrame bf("\e[101m","\e[103m","\e[44m","\e[104m","\e[102m",bp,false,1);
 	SettingsFrame sf=SettingsFrame();
 	StartFrame st=StartFrame();
-	frame = &bf;
+	frame = &st;
 	//frame=&f;
 	//frame=&sf;
 	//frame=&fsf;
