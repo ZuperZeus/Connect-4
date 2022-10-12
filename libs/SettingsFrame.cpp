@@ -62,6 +62,8 @@ Frame * SettingsFrame::select()
 }
 Frame * SettingsFrame::esc()
 {
+	//Frame::delBuffer();
+	//cout<<"Reached this";
 	return this;
 }
 /*

@@ -20,21 +20,41 @@ xfn()
 	tput cvvis
 	printf "\e[?1049l"
 	printf "\e[31mINTERRUPTED\e[0m\n"
-	echo "Removing Main"
-	rm ./Main
-	echo "Removed Main"
+	if [[ -e ./Main ]]
+	then
+		echo "Removing Main"
+		rm ./Main
+		echo "Removed Main"
+	fi
 	exit
 }
 trap "xfn" INT
 echo "Compiling"
-printf "...............................................]\r["
 g++ -o Main Main.cpp libs/*.cpp &
+tput civis
+lbar=".................................................."
+cont=0
 while [[ -e /proc/$! ]]
 do
-	printf "#"
-	sleep .1
+	if [[ $cont -lt 50 ]]
+	then
+		printf "\r[" # $cont%%"
+		#lbar=""
+		for (( i = 0; i<= $cont; i++ ))
+		do
+			printf "#"
+		done
+		for (( i = 50; i>= $cont; i-- ))
+		do
+			printf "."
+		done
+		printf "] $(($cont*2))%%"
+		cont=$(($cont+1))
+		sleep .1
+	fi
 done
-printf "\r[##############################################]\n"
+tput cvvis
+printf "\r[##################################################] 100%%\n"
 if [[ -e ./Main ]]
 then
 	echo "Compile done!"

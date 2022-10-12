@@ -40,11 +40,7 @@ void *keys(void *arg)
 	{
 		int x=kl.getKey();
 		if(x!=0)
-		{
 			lastPressed=x;
-			if(x==6)
-				pthread_exit(NULL);
-		}
 	}
 	pthread_exit(NULL);
 }
@@ -63,9 +59,9 @@ void *term(void *arg)
 		{
 			if(lastPressed==6)
 			{
-				frame=frame->esc();
 				//returnToTerm=true;
 				//pthread_exit(NULL);
+				frame=frame->esc();
 			}
 			else if(lastPressed==5)
 			{
@@ -91,9 +87,6 @@ int main()
 	SettingsFrame sf=SettingsFrame();
 	StartFrame st=StartFrame();
 	frame = &st;
-	//frame=&f;
-	//frame=&sf;
-	//frame=&fsf;
 	system("tput civis");
 	Frame::newBuffer();
 	pthread_t key_thread;

@@ -19,16 +19,16 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
-#include "StartFrame.h"
+#include "PauseFrame.h"
 #include "SettingsFrame.h"
 using namespace std;
-StartFrame::StartFrame()
+PauseFrame::PauseFrame()
 {
 	xSize=2;
 	ySize=2;
 	framestring="";
 }
-Frame * StartFrame::select()
+Frame * PauseFrame::select()
 {
 	if(sel.first==0&&sel.second==0)
 	{
@@ -55,51 +55,53 @@ Frame * StartFrame::select()
 	}
 	return this;
 }
-Frame * StartFrame::esc()
+Frame * PauseFrame::esc()
 {
 	//system("tput cvvis");
 	//Frame::delBuffer();
 	//exit(0);
 	return this;
 }
-void StartFrame::updateFrame()
+void PauseFrame::updateFrame()
 {
 	string title;
-	if(cols>=65)
+	if(cols>=47)
 	{
 		title="\n"+
-		center("\e[48;5;82;30m                                                                 \e[0m\n",65)+
-		center("\e[48;5;46;30m  #     #  #######  #         #####   #######  #     #  #######  \e[0m\n",65)+
-		center("\e[48;5;47;30m  #  #  #  #        #        #     #  #     #  ##   ##  #        \e[0m\n",65)+
-		center("\e[48;5;48;30m  #  #  #  #        #        #        #     #  # # # #  #        \e[0m\n",65)+
-		center("\e[48;5;49;30m  #  #  #  #####    #        #        #     #  #  #  #  #####    \e[0m\n",65)+
-		center("\e[48;5;50;30m  #  #  #  #        #        #        #     #  #     #  #        \e[0m\n",65)+
-		center("\e[48;5;51;30m  #  #  #  #        #        #     #  #     #  #     #  #        \e[0m\n",65)+
-		center("\e[48;5;87;30m   ## ##   #######  #######   #####   #######  #     #  #######  \e[0m\n",65)+
-		center("\e[48;5;123;30m                                                                 \e[0m\n",65);
+		center("\e[48;5;82;30m                                               \e[0m\n",47);
+		center("\e[48;5;46;30m  ######      #     #     #   #####   #######  \e[0m\n",47)+
+		center("\e[48;5;47;30m  #     #    # #    #     #  #     #  #        \e[0m\n",47)+
+		center("\e[48;5;48;30m  #     #   #   #   #     #  #        #        \e[0m\n",47)+
+		center("\e[48;5;49;30m  ######   #     #  #     #   #####   #####    \e[0m\n",47)+
+		center("\e[48;5;50;30m  #        #######  #     #        #  #        \e[0m\n",47)+
+		center("\e[48;5;51;30m  #        #     #  #     #  #     #  #        \e[0m\n",47)+
+		center("\e[48;5;87;30m  #        #     #   #####    #####   #######  \e[0m\n",47)+
+		center("\e[48;5;123;30m                                               \e[0m\n",47);
 	}
-	else if(cols>=44)
+	else if(cols>=31)
 	{
 		title="\n"+
-		center("\e[48;5;46;30m __        __   _                           \e[0m\n",44)+
-		center("\e[48;5;47;30m \\ \\      / /__| | ___ ___  _ __ ___   ___  \e[0m\n",44)+
-		center("\e[48;5;48;30m  \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\ \e[0m\n",44)+
-		center("\e[48;5;49;30m   \\ V  V /  __/ | (_| (_) | | | | | |  __/ \e[0m\n",44)+
-		center("\e[48;5;50;30m    \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___| \e[0m\n",44)+
-		center("\e[48;5;51;30m                                            \e[0m\n",44);
+		center("\e[48;5;46;30m   ____                        \e[0m\n",31)+
+		center("\e[48;5;47;30m  |  _ \\ __ _ _   _ ___  ___   \e[0m\n",31)+
+		center("\e[48;5;48;30m  | |_) / _` | | | / __|/ _ \\  \e[0m\n",31)+
+		center("\e[48;5;49;30m  |  __/ (_| | |_| \\__ \\  __/  \e[0m\n",31)+
+		center("\e[48;5;50;30m  |_|   \\__,_|\\__,_|___/\\___|  \e[0m\n",31)+
+		center("\e[48;5;51;30m                               \e[0m\n",31);
 	}
-	else if(cols>=24)
+	else if(cols>=15)
 	{
 		title="\n"+
-		center("\e[48;5;46;30m \\    /_ | _ _ ._ _  _  \e[0m\n",24)+
-		center("\e[48;5;51;30m  \\/\\/(/_|(_(_)| | |(/_ \e[0m\n",24);
+		center("\e[48;5;46;30m  _            \e[0m\n",15)+
+		center("\e[48;5;48;30m |_)_.    _ _  \e[0m\n",15)+
+		center("\e[48;5;49;30m | (_||_|_>(/_ \e[0m\n",15);
+		center("\e[48;5;51;30m               \e[0m\n",15);
 	}
 	else
 	{
 		title="\n"+
-		center("\e[48;5;46;30m           \e[0m\n",11)+
-		center("\e[48;5;48;30m  Welcome  \e[0m\n",11)+
-		center("\e[48;5;51;30m           \e[0m\n",11);
+		center("\e[48;5;46;30m         \e[0m\n",9)+
+		center("\e[48;5;48;30m  Pause  \e[0m\n",9)+
+		center("\e[48;5;51;30m         \e[0m\n",9);
 	}
 	int height=(rows-21)/2;
 	int width=(cols*2/3)/2;
@@ -192,7 +194,7 @@ void StartFrame::updateFrame()
 	}
 	framestring=title+menu;
 }
-void StartFrame::printFrame()
+void PauseFrame::printFrame()
 {
 	updateFrame();
 	this->clear();

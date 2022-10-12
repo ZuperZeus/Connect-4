@@ -61,15 +61,12 @@ int KeyListener::getKey()
 	else if (x=='s') {return down;}
 	else if (x=='d') {return right;}
 	else if (x=='a') {return left;}
-	else if (x==127) {return esc;}
+	else if (x=='\b') {return esc;}
 	else if(x=='\n')
 	{
 		cout<<(char)27<<(char)91<<(char)65<<clear;
 		return sel;
 	}
-	else
-	{
-		cout<<clear<<endl;
-	}
+		cout<<clear;
 		return 0;
 }

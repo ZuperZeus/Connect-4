@@ -46,7 +46,6 @@ bool Frame::updateSize(int col,int row)
 {
 	if(row==rows&&col==cols)
 		return false;
-	cout<<"updating";
 	cols=col;
 	rows=row;
 	return true;
@@ -54,7 +53,9 @@ bool Frame::updateSize(int col,int row)
 void Frame::move(int x)
 {
 	//1=up;2=down;3=left;4=right
-	if(x==1)
+	if(sel==make_pair(-1,-1))
+		sel=make_pair(0,0);
+	else if(x==1)
 		if(sel.second==-1)
 			sel.second=xSize-1;
 		else if(sel.second==0)

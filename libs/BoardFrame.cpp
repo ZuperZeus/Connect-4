@@ -20,6 +20,7 @@
 #include <vector>
 #include "BoardFrame.h"
 #include "SettingsFrame.h"
+#include "PauseFrame.h"
 #include "Board.h"
 using namespace std;
 BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, Board bpieces, bool ai, int cplay)
@@ -40,27 +41,28 @@ BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string 
 }
 Frame * BoardFrame::esc()
 {
-	system("tput cvvis");
-	Frame::delBuffer();
-	exit(0);
-	return this;
+	PauseFrame *pf=new PauseFrame();
+	return pf;
 }
 Frame * BoardFrame::select()
 {
-	currplay=3-currplay;
-	boardBackend.drop(sel.first,currplay);
-	sel.first=-1;
+	sel.second=1;
+	//currplay=3-currplay;
+	//boardBackend.drop(sel.first,currplay);
+	//sel.first=-1;
 	return this;
 }
 void BoardFrame::updateFrame()
 {
-	if(sel.second==0)
-	{
-		currplay=3-currplay;
-		boardBackend.drop(sel.first,currplay);
-		sel.first=-1;
-		sel.second=1;
-	}
+	if(sel.second==1)
+		if(sel.first>=0)
+		{
+			currplay=3-currplay;
+			boardBackend.drop(sel.first,currplay);
+			sel.first=-1;
+			sel.second=0;
+		}
+		else sel.second=0;
 	vector< vector<int> > boardPieces=boardBackend.getBoard();
 	int columnLength=cols-2-(cols-2)%7;
 	int rowLength=rows-1-(rows-1)%6;
