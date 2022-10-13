@@ -20,7 +20,7 @@
 //Basically allows you to use it as the game controller, either with joystick or with buttons
 
 #include "Keyboard.h"
-char arr[]={'w','d','s','a','\b','\b','\n'};
+char arr[]={'w','d','s','a','x','x','\n'};
 void setup() {    
   Keyboard.begin();
   for(int i=2;i<9;i++)

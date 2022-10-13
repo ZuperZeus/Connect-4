@@ -21,6 +21,7 @@
 #include <fstream>
 #include "PauseFrame.h"
 #include "SettingsFrame.h"
+#include "StartFrame.h"
 using namespace std;
 PauseFrame::PauseFrame()
 {
@@ -32,13 +33,15 @@ Frame * PauseFrame::select()
 {
 	if(sel.first==0&&sel.second==0)
 	{
-		//ai
-		return SettingsFrame::getDefaultBoardFrameAI();
+		//save
+		SettingsFrame::save();
+		return this;
 	}
 	if(sel.first==1&&sel.second==0)
 	{
-		//1v1
-		return SettingsFrame::getDefaultBoardFrame();
+		//Home
+		Frame *stf=new StartFrame();
+		return stf;
 	}
 	if(sel.first==0&&sel.second==1)
 	{
@@ -68,7 +71,7 @@ void PauseFrame::updateFrame()
 	if(cols>=47)
 	{
 		title="\n"+
-		center("\e[48;5;82;30m                                               \e[0m\n",47);
+		center("\e[48;5;82;30m                                               \e[0m\n",47)+
 		center("\e[48;5;46;30m  ######      #     #     #   #####   #######  \e[0m\n",47)+
 		center("\e[48;5;47;30m  #     #    # #    #     #  #     #  #        \e[0m\n",47)+
 		center("\e[48;5;48;30m  #     #   #   #   #     #  #        #        \e[0m\n",47)+
@@ -110,26 +113,6 @@ void PauseFrame::updateFrame()
 	string strarr[4][9]={{
 
 	"           ",
-	"   #    ###",
-	"  # #    # ",
-	" #   #   # ",
-	"#     #  # ",
-	"#######  # ",
-	"#     #  # ",
-	"#     # ###",
-	"           "},
-	{
-	"           ",
-	"# #     # #",
-	"# #     # #",
-	"# #     # #",
-	"# #     # #",
-	"#  #   #  #",
-	"#   # #   #",
-	"#    #    #",
-	"           "},
-	{
-	"           ",
 	"     #     ",
 	"     #     ",
 	"  #  #  #  ",
@@ -139,14 +122,34 @@ void PauseFrame::updateFrame()
 	"  #######  ",
 	"           "},
 	{
+	"     #     ",
+	"    # #    ",
+	"   #   #   ",
+	"  #     #  ",
+	" #       # ",
+	"##       ##",
+	" #  ###  # ",
+	" #  # #  # ",
+	" #  # #  # "},
+	{
 	"           ",
-	"     #     ",
-	"  # ### #  ",
-	"   #   #   ",
-	" ##  #  ## ",
-	"   #   #   ",
-	"  # ### #  ",
-	"     #     ",
+	" #         ",
+	"  #        ",
+	"   #       ",
+	"    #      ",
+	"   #       ",
+	"  #        ",
+	" #         ",
+	"   ####### "},
+	{
+	"           ",
+	"###########",
+	"# # # # # #",
+	"###########",
+	"# # # # # #",
+	"###########",
+	"# # # # # #",
+	"###########",
 	"           "}};
 	string ssel="\e[30;5m";
 	string nsel="\e[97m";
@@ -161,14 +164,14 @@ void PauseFrame::updateFrame()
 		menu+=center("",(width*2));
 		if(sel.first==0&&sel.second==0)
 			menu+="\e[7;5m";
-		menu+="\e[101;30m";
+		menu+="\e[102;30m";
 		menu+=cen;
 		menu+=strarr[0][j];
 		menu+=cen;
 		menu+="\e[0m";
 		if(sel.first==1&&sel.second==0)
 			menu+="\e[7;5m";
-		menu+="\e[104;30m";
+		menu+="\e[107;30m";
 		menu+=cen;
 		menu+=strarr[1][j];
 		menu+=cen;
@@ -179,20 +182,20 @@ void PauseFrame::updateFrame()
 		menu+=center("",(width*2));
 		if(sel.first==0&&sel.second==1)
 			menu+="\e[7;5m";
-		menu+="\e[102;30m";
+		menu+="\e[101;30m";
 		menu+=cen;
 		menu+=strarr[2][j];
 		menu+=cen;
 		menu+="\e[0m";
 		if(sel.first==1&&sel.second==1)
 			menu+="\e[7;5m";
-		menu+="\e[103;30m";
+		menu+="\e[104;30m";
 		menu+=cen;
 		menu+=strarr[3][j];
 		menu+=cen;
 		menu+="\e[0m\n";
 	}
-	framestring=title+menu;
+	framestring=title+menu+"\n";
 }
 void PauseFrame::printFrame()
 {

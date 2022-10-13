@@ -21,6 +21,7 @@
 #include <fstream>
 #include "StartFrame.h"
 #include "SettingsFrame.h"
+#include "ExitException.h"
 using namespace std;
 StartFrame::StartFrame()
 {
@@ -50,7 +51,7 @@ Frame * StartFrame::select()
 	if(sel.first==1&&sel.second==1)
 	{
 		//settings
-		SettingsFrame *sf=new SettingsFrame();
+		Frame *sf=new SettingsFrame();
 		return sf;
 	}
 	return this;
@@ -60,6 +61,7 @@ Frame * StartFrame::esc()
 	//system("tput cvvis");
 	//Frame::delBuffer();
 	//exit(0);
+	throw ExitException();
 	return this;
 }
 void StartFrame::updateFrame()

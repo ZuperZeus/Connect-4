@@ -52,9 +52,7 @@ SettingsFrame::SettingsFrame()
 }*/
 void SettingsFrame::save()
 {
-	out.open("libs/txt/settings.txt",ios::trunc);
-	for(int i=0;i<6;i++) out<<options[i];
-	out.close();
+	//SAVE Current game
 }
 Frame * SettingsFrame::select()
 {

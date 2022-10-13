@@ -62,6 +62,7 @@ int KeyListener::getKey()
 	else if (x=='d') {return right;}
 	else if (x=='a') {return left;}
 	else if (x=='\b') {return esc;}
+	else if (x=='x') {return esc;}
 	else if(x=='\n')
 	{
 		cout<<(char)27<<(char)91<<(char)65<<clear;

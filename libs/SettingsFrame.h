@@ -39,12 +39,12 @@ class SettingsFrame : public Frame
 		string framestring;
 		void updateFrame();
 	//	string center(int size);
-		void save();
 	//	void change(int val, int newint);
 	public:
 		SettingsFrame();
 		~SettingsFrame()=default;
 	//	void move(int x);
+		static void save();
 		Frame * select();
 		Frame * esc();
 		static BoardFrame * getDefaultBoardFrameAI();

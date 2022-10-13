@@ -41,7 +41,7 @@ BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string 
 }
 Frame * BoardFrame::esc()
 {
-	PauseFrame *pf=new PauseFrame();
+	Frame *pf=new PauseFrame();
 	return pf;
 }
 Frame * BoardFrame::select()

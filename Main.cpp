@@ -24,10 +24,12 @@
 #include "libs/BoardFrame.h"
 #include "libs/SettingsFrame.h"
 #include "libs/StartFrame.h"
+#include "libs/PauseFrame.h"
 #include "libs/Frame.h"
 #include "libs/Board.h"
 #include "libs/KeyListener.h"
 #include "libs/TermListener.h"
+#include "libs/ExitException.h"
 using namespace std;
 Frame *frame;
 int lastPressed;
@@ -59,9 +61,15 @@ void *term(void *arg)
 		{
 			if(lastPressed==6)
 			{
-				//returnToTerm=true;
-				//pthread_exit(NULL);
-				frame=frame->esc();
+				try
+				{
+					frame=frame->esc();
+				}
+				catch(ExitException e)
+				{
+					returnToTerm=true;
+					pthread_exit(NULL);
+				}
 			}
 			else if(lastPressed==5)
 			{
@@ -82,18 +90,19 @@ int main()
 	lastPressed=0;
 	currPlayer=1;
 	returnToTerm=false;
-	Board bp;
-	BoardFrame bf("\e[101m","\e[103m","\e[44m","\e[104m","\e[102m",bp,false,1);
-	SettingsFrame sf=SettingsFrame();
+	//Board bp;
+	//BoardFrame bf("\e[101m","\e[103m","\e[44m","\e[104m","\e[102m",bp,false,1);
 	StartFrame st=StartFrame();
+	//PauseFrame pf=PauseFrame();
 	frame = &st;
+
 	system("tput civis");
 	Frame::newBuffer();
 	pthread_t key_thread;
 	pthread_t term_thread;
 	pthread_create(&key_thread,NULL,&keys,NULL);
 	pthread_create(&term_thread,NULL,&term,NULL);
-	while(!returnToTerm){}
+	while(!returnToTerm);
 	Frame::delBuffer();
 	system("tput cvvis");
 }
