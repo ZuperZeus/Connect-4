@@ -31,7 +31,12 @@ All green options will be chosen by arrows and enter, while blue options will be
 # Current Completed Frames
 These are frames (blue bubbles in the mind map) which are practically finished
 ## StartFrame
+
 <img src="./img/StartFrame.png">
+
+## PauseFrame
+
+<img src="./img/PauseFrame.png">
 
 ## BoardFrame
 
