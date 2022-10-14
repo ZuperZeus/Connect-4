@@ -38,10 +38,6 @@ These are frames (blue bubbles in the mind map) which are practically finished
 
 <img src="./img/PauseFrame.png">
 
-## BoardFrame
-
-<img src="./img/BoardFrame.png">
-
 ## SettingsFrame
 
 <img src="./img/SettingsFrame.png">
@@ -49,6 +45,10 @@ These are frames (blue bubbles in the mind map) which are practically finished
 ## SavedFrame
 
 <img src="./img/SavedFrame.png">
+
+## BoardFrame
+
+<img src="./img/BoardFrame.png">
 
 
 [Github link](https./img//github.co./img/ZuperZeu./img/Connect-./img/)
