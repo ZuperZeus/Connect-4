@@ -50,31 +50,31 @@ They all change size to adapt to the terminal size, but look best when it's at l
 
 # BoardFrame
 
-### Classic colors
+## Classic colors
 
-#### No selection
+### No selection
 
 <img src="./img/BoardFrame_classic_default.png">
 
-#### Selected Column
+### Selected Column
 
 <img src="./img/BoardFrame_classic_selected.png">
 
-#### Win condition
+### Win condition
 
 <img src="./img/BoardFrame_classic_win.png">
 
-### Alternate colors
+## Alternate colors
 
-#### Noir
+### Noir
 
 <img src="./img/BoardFrame_noir_selected.png">
 
-#### Red
+### Red
 
 <img src="./img/BoardFrame_red_selected.png">
 
-#### Spring
+### Spring
 
 <img src="./img/BoardFrame_spring_selected.png">
 
