@@ -35,7 +35,6 @@
 using namespace std;
 Frame *frame;
 int lastPressed;
-int currPlayer;
 bool returnToTerm;
 void *keys(void *arg)
 {
@@ -82,14 +81,9 @@ void *term(void *arg)
 int main()
 {
 	lastPressed=0;
-	currPlayer=1;
 	returnToTerm=false;
-	//Board bp;
-	//BoardFrame bf("\e[101m","\e[103m","\e[44m","\e[104m","\e[102m",bp,false,1);
 	StartFrame st=StartFrame();
-	//PauseFrame pf=PauseFrame();
 	frame = &st;
-
 	system("tput civis");
 	Frame::newBuffer();
 	pthread_t key_thread;
