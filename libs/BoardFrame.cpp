@@ -18,6 +18,8 @@
 
 #include <iostream>
 #include <vector>
+#include <stdlib.h>
+#include <time.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <fstream>
@@ -26,7 +28,7 @@
 #include "PauseFrame.h"
 #include "Board.h"
 using namespace std;
-BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, Board bpieces, bool ai, int cplay)
+BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, Board bpieces, bool ai, int cplay, int diff)
 {
 	xSize=2;
 	ySize=7;
@@ -41,23 +43,17 @@ BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string 
 	winbool=false;
 	currplay=cplay;
 	aiActive=ai;
+	aidiff=diff;
+	moves="";
 }
 void BoardFrame::saveGameToTemp()
 {
 	ofstream out;
-	vector< vector<int> > boardPieces=boardBackend.getBoard();
 	out.open("libs/txt/temp.txt",ios::trunc);
 	out<<1<<endl;
 	out<<aiActive<<endl;
 	out<<currplay<<endl;
-	for(int i=0;i<6;i++)
-	{
-		for(int j=0;j<7;j++)
-		{
-			out<<boardPieces[j][i]<<" ";
-		}
-		out<<endl;
-	}
+	out<<moves<<endl;
 	out.close();
 }
 Frame * BoardFrame::esc()
@@ -89,8 +85,35 @@ Frame * BoardFrame::select()
 			}
 			currplay=3-currplay;
 			boardBackend.drop(column,currplay);
+			moves=moves+(char)(column+'1');
 			saveGameToTemp();
 			printFrame();
+			/*if(boardBackend.checkWin()==0)
+			if(aiActive)
+			{
+				//int column=boardBackend.eval(aidiff,moves);
+				int column=boardBackend.eval(6,moves);
+				//srand(time(NULL));
+				//int column=rand()%7;
+				vector< vector<int> > bp=boardBackend.getBoard();
+				for(int i=0;i<6;i++)
+				{
+					if(bp[column][i+1]==0)
+					{
+						int decsec=10000;
+						bp[column][i]=3-currplay;
+						getFrame(bp);
+						printAnimationFrame();
+						usleep((7-i)*(7-i)*decsec);
+						bp[column][i]=0;
+					}
+				}
+				currplay=3-currplay;
+				boardBackend.drop(column,currplay);
+				moves=moves+(char)(column+'1');
+				saveGameToTemp();
+				printFrame();
+			}*/
 		}
 	}
 	else

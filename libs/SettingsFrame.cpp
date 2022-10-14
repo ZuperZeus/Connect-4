@@ -179,7 +179,7 @@ void SettingsFrame::printFrame()
 	this->clear();
 	cout<<framestring;
 }
-BoardFrame * SettingsFrame::getCurrentBoardFrame()
+BoardFrame * SettingsFrame::getCurrentBoardFrame(int aiActive)
 {
 	vector<string> indexedColors={"\e[101m","\e[48;5;208m","\e[103m","\e[102m","\e[48;5;49m","\e[106m","\e[104m","\e[105m","\e[48;5;128m","\e[100m"};
 	vector<int> v;
@@ -191,21 +191,23 @@ BoardFrame * SettingsFrame::getCurrentBoardFrame()
 	intemp.close();
 	Board b;
 	int active,ai=0,cplayer=2;
-	vector< vector<int> > mat;
-	mat.resize(6);
-	for(int i=0;i<6;i++)
-		mat[i].resize(7);
+	string moves;
 	intemp.open("libs/txt/curr.txt",ios::in);
 	intemp>>active; // Active/Not Active
+	int cplay=1;
 	if(active)
 	{
 		intemp>>ai; // AI/Not AI
 		intemp>>cplayer; //Who goes next
-		for(int i=0;i<6;i++)
-			for(int j=0;j<7;j++)
-				intemp>>mat[i][j];
-		b=Board(mat);
+		getline(intemp,moves);
+		for(int i=0;i<moves.length();i++)
+		{
+			b.drop((int)(moves[i]+'1'),cplay);
+			cplay=3-cplay;
+		}
 	}
+	else
+		ai=aiActive;
 	intemp.close();
 	BoardFrame *bf = new BoardFrame(
 			indexedColors[v[1]],
@@ -213,7 +215,7 @@ BoardFrame * SettingsFrame::getCurrentBoardFrame()
 			indexedColors[v[3]],
 			indexedColors[v[4]],
 			indexedColors[v[5]],
-			b, ai, cplayer );
+			b, ai, cplayer, v[0] );
 	return bf;
 	
 }
@@ -229,20 +231,20 @@ BoardFrame * SettingsFrame::getTempBoardFrame()
 	intemp.close();
 	Board b;
 	int active,ai=0,cplayer=2;
-	vector< vector<int> > mat;
-	mat.resize(6);
-	for(int i=0;i<6;i++)
-		mat[i].resize(7);
+	string moves;
 	intemp.open("libs/txt/temp.txt",ios::in);
 	intemp>>active; // Active/Not Active
+	int cplay=1;
 	if(active)
 	{
 		intemp>>ai; // AI/Not AI
 		intemp>>cplayer; //Who goes next
-		for(int i=0;i<6;i++)
-			for(int j=0;j<7;j++)
-				intemp>>mat[i][j];
-		b=Board(mat);
+		getline(intemp,moves);
+		for(int i=0;i<moves.length();i++)
+		{
+			b.drop((int)(moves[i]+'1'),cplay);
+			cplay=3-cplay;
+		}
 	}
 	intemp.close();
 	BoardFrame *bf = new BoardFrame(
@@ -251,7 +253,7 @@ BoardFrame * SettingsFrame::getTempBoardFrame()
 			indexedColors[v[3]],
 			indexedColors[v[4]],
 			indexedColors[v[5]],
-			b, ai, cplayer );
+			b, ai, cplayer, v[0] );
 	return bf;
 	
 }

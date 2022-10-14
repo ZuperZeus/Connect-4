@@ -36,6 +36,7 @@ class BoardFrame : public Frame
 		string reset;
 		bool winbool;
 		bool aiActive;
+		int aidiff;
 		vector<int>xwin;
 		vector<int>ywin;
 		void updateFrame();
@@ -43,9 +44,10 @@ class BoardFrame : public Frame
 		void saveGameToTemp();
 		void printAnimationFrame();
 	public:
+		string moves;
 		Board boardBackend;	//(7,vector<int>(6,0)); //0=empty; 1=p1; 2=p2
 		int currplay;
-		BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, Board bpieces, bool ai, int cplay);
+		BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, Board bpieces, bool ai, int cplay, int diff);
 		~BoardFrame()=default;
 		void move(int x);
 		Frame * esc();

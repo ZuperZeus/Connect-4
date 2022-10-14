@@ -65,7 +65,12 @@ Frame * SavedFrame::select()
 		out<<in.rdbuf();
 		in.close();
 		out.close();
-		return SettingsFrame::getCurrentBoardFrame();
+		int ai;
+		in.open("libs/txt/curr.txt",ios::in);
+		in>>ai;
+		in>>ai;
+		in.close();
+		return SettingsFrame::getCurrentBoardFrame(ai);
 	}
 	else if(sel.second==0)
 	{

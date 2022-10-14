@@ -35,12 +35,12 @@ Frame * StartFrame::select()
 	if(sel.first==0&&sel.second==0)
 	{
 		//ai
-		return SettingsFrame::getCurrentBoardFrame();
+		return SettingsFrame::getCurrentBoardFrame(1);
 	}
 	if(sel.first==1&&sel.second==0)
 	{
 		//1v1
-		return SettingsFrame::getCurrentBoardFrame();
+		return SettingsFrame::getCurrentBoardFrame(0);
 	}
 	if(sel.first==0&&sel.second==1)
 	{

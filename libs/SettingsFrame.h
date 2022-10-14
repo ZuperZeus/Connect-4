@@ -27,27 +27,20 @@ using namespace std;
 class SettingsFrame : public Frame
 {
 	private:
-		//int rows;
-		//int cols;
 		vector<int> options;
 		vector<string> indexedcolors;
-		//int selX;
-		//int selY;
 		ifstream in;
 		ofstream out;
 		string reset;
 		string framestring;
 		void updateFrame();
-	//	string center(int size);
-	//	void change(int val, int newint);
 	public:
 		SettingsFrame();
 		~SettingsFrame()=default;
-	//	void move(int x);
 		void save();
 		Frame * select();
 		Frame * esc();
-		static BoardFrame * getCurrentBoardFrame();
+		static BoardFrame * getCurrentBoardFrame(int ai);
 		static void deleteCurrentBoardFrame();
 		static BoardFrame * getTempBoardFrame();
 		void printFrame();

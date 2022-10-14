@@ -99,5 +99,16 @@ int main()
 	remove("libs/txt/temp.txt");
 	Frame::delBuffer();
 	system("tput cvvis");
+	/*vector< vector<int> > v{
+		{0,0,0,0,0,0},
+		{0,0,0,0,0,0},
+		{0,0,0,0,0,0},
+		{0,0,0,0,0,0},
+		{0,0,0,0,0,0},
+		{0,0,0,0,0,0},
+		{1,0,2,0,0,0}};
+	Board b(v);
+	cout<<b.eval(9,"5543421")<<endl;
+	*/
 	return 0;
 }

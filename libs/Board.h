@@ -33,7 +33,7 @@ class Board
 		bool canDrop(int sel);
 		int checkWin();
 		vector< vector<int> > getWin();
-		int eval(int team);
+		int eval(int diff, string line);
 		vector< vector<int> > getBoard();
 };
 #endif
