@@ -47,7 +47,7 @@ class BoardFrame : public Frame
 		string moves;
 		Board boardBackend;	//(7,vector<int>(6,0)); //0=empty; 1=p1; 2=p2
 		int currplay;
-		BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, Board bpieces, bool ai, int cplay, int diff);
+		BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, Board bpieces, bool ai, int cplay, int diff, string mv);
 		~BoardFrame()=default;
 		void move(int x);
 		Frame * esc();

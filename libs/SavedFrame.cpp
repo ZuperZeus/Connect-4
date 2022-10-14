@@ -138,7 +138,7 @@ void SavedFrame::updateFrame()
 	}
 	string warningstring;
 	if(warning==sel.first)
-		warningstring=center("\e[91;3mWarning: this will delete previously saved game\e[0m",47)+"\n"+center("\e[91;3mPress enter Again to confirm\e[0m",28)+"\n";
+		warningstring=center("\e[91;3mWarning: this will delete previously saved game\e[0m",47)+"\n"+center("\e[91;3mPress <enter> again to confirm\e[0m",28)+"\n";
 	else
 	{
 		warning=-2;

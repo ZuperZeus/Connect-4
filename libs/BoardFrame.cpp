@@ -28,7 +28,7 @@
 #include "PauseFrame.h"
 #include "Board.h"
 using namespace std;
-BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, Board bpieces, bool ai, int cplay, int diff)
+BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, Board bpieces, bool ai, int cplay, int diff, string mv)
 {
 	xSize=2;
 	ySize=7;
@@ -44,7 +44,7 @@ BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string 
 	currplay=cplay;
 	aiActive=ai;
 	aidiff=diff;
-	moves="";
+	moves=mv;
 }
 void BoardFrame::saveGameToTemp()
 {

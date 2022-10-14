@@ -200,9 +200,10 @@ BoardFrame * SettingsFrame::getCurrentBoardFrame(int aiActive)
 		intemp>>ai; // AI/Not AI
 		intemp>>cplayer; //Who goes next
 		getline(intemp,moves);
+		getline(intemp,moves);
 		for(int i=0;i<moves.length();i++)
 		{
-			b.drop((int)(moves[i]+'1'),cplay);
+			b.drop((int)(moves[i]-'1'),cplay);
 			cplay=3-cplay;
 		}
 	}
@@ -215,7 +216,7 @@ BoardFrame * SettingsFrame::getCurrentBoardFrame(int aiActive)
 			indexedColors[v[3]],
 			indexedColors[v[4]],
 			indexedColors[v[5]],
-			b, ai, cplayer, v[0] );
+			b, ai, cplayer, v[0], moves);
 	return bf;
 	
 }
@@ -240,9 +241,10 @@ BoardFrame * SettingsFrame::getTempBoardFrame()
 		intemp>>ai; // AI/Not AI
 		intemp>>cplayer; //Who goes next
 		getline(intemp,moves);
+		getline(intemp,moves);
 		for(int i=0;i<moves.length();i++)
 		{
-			b.drop((int)(moves[i]+'1'),cplay);
+			b.drop((int)(moves[i]-'1'),cplay);
 			cplay=3-cplay;
 		}
 	}
@@ -253,7 +255,7 @@ BoardFrame * SettingsFrame::getTempBoardFrame()
 			indexedColors[v[3]],
 			indexedColors[v[4]],
 			indexedColors[v[5]],
-			b, ai, cplayer, v[0] );
+			b, ai, cplayer, v[0], moves);
 	return bf;
 	
 }

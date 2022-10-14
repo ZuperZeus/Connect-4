@@ -43,8 +43,7 @@ Frame * PauseFrame::select()
 		out<<in.rdbuf();
 		in.close();
 		out.close();
-		sel.first=1;
-		sel.second=1;
+		return SettingsFrame::getTempBoardFrame();
 	}
 	if(sel.first==1&&sel.second==0)
 	{
