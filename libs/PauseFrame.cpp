@@ -36,8 +36,6 @@ Frame * PauseFrame::select()
 	if(sel.first==0&&sel.second==0)
 	{
 		//save
-		//SettingsFrame::save();
-		//copy temp to curr
 		ifstream in;
 		ofstream out;
 		in.open("libs/txt/temp.txt",ios::binary);

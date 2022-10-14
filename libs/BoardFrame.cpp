@@ -19,6 +19,7 @@
 #include <iostream>
 #include <vector>
 #include <unistd.h>
+#include <stdio.h>
 #include <fstream>
 #include "BoardFrame.h"
 #include "SettingsFrame.h"
@@ -67,26 +68,35 @@ Frame * BoardFrame::esc()
 }
 Frame * BoardFrame::select()
 {
-	if(sel.first>=0)
+	if(boardBackend.checkWin()==0)
 	{
-		int column=sel.first;
-		sel.first=-1;
-		vector< vector<int> > bp=boardBackend.getBoard();
-		for(int i=0;i<7;i++)
+		if(sel.first>=0)
 		{
-			if(bp[column][i]==0)
+			int column=sel.first;
+			sel.first=-1;
+			vector< vector<int> > bp=boardBackend.getBoard();
+			for(int i=0;i<6;i++)
 			{
-				int decsec=10000;
-				bp[column][i]=3-currplay;
-				getFrame(bp);
-				printAnimationFrame();
-				usleep((7-i)*(7-i)*decsec);
-				bp[column][i]=0;
+				if(bp[column][i+1]==0)
+				{
+					int decsec=10000;
+					bp[column][i]=3-currplay;
+					getFrame(bp);
+					printAnimationFrame();
+					usleep((7-i)*(7-i)*decsec);
+					bp[column][i]=0;
+				}
 			}
-		}
 			currplay=3-currplay;
 			boardBackend.drop(column,currplay);
 			saveGameToTemp();
+			printFrame();
+		}
+	}
+	else
+	{
+		remove("libs/txt/curr.cpp");
+		remove("libs/txt/temp.cpp");
 	}
 	sel.second=0;
 	return this;
@@ -222,6 +232,8 @@ void BoardFrame::win(vector< vector<int> > winvec)
 }
 void BoardFrame::printFrame()
 {
+	if(boardBackend.checkWin()!=0)
+		win(boardBackend.getWin());
 	updateFrame();
 	this->clear();
 	string cen=center("",board[0].size());

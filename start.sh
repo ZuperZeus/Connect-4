@@ -15,20 +15,6 @@
  #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #!/bin/bash
-xfn()
-{
-	tput cvvis
-	printf "\e[?1049l"
-	printf "\e[31mINTERRUPTED\e[0m\n"
-	if [[ -e ./Main ]]
-	then
-		echo "Removing Main"
-		rm ./Main
-		echo "Removed Main"
-	fi
-	exit
-}
-trap "xfn" INT
 echo "Compiling"
 g++ -o Main Main.cpp libs/*.cpp &
 tput civis

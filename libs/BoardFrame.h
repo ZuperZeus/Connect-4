@@ -27,7 +27,6 @@ class BoardFrame : public Frame
 {
 	private:
 		vector< vector<int> > board;		//0=empty; 1=p1; 2=p2; 3=frame; 4=selected; 5=win
-		Board boardBackend;	//(7,vector<int>(6,0)); //0=empty; 1=p1; 2=p2
 		string player1Color;
 		string player2Color;
 		string defaultColor;
@@ -44,6 +43,7 @@ class BoardFrame : public Frame
 		void saveGameToTemp();
 		void printAnimationFrame();
 	public:
+		Board boardBackend;	//(7,vector<int>(6,0)); //0=empty; 1=p1; 2=p2
 		int currplay;
 		BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, Board bpieces, bool ai, int cplay);
 		~BoardFrame()=default;

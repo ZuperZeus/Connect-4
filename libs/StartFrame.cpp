@@ -58,9 +58,6 @@ Frame * StartFrame::select()
 }
 Frame * StartFrame::esc()
 {
-	//system("tput cvvis");
-	//Frame::delBuffer();
-	//exit(0);
 	throw ExitException();
 	return this;
 }

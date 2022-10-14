@@ -63,6 +63,8 @@ int Board::checkWin()
 }
 int Board::eval(int team)
 {
+	return 0;
+	/*
 	int heuc1=0;
 	int heuc2=0;
 	int cont1=0;
@@ -128,7 +130,6 @@ int Board::eval(int team)
 				cont2=0;
 			}
 		}
-		//disc=0;
 		cont1=0;
 		cont2=0;
 	}
@@ -204,6 +205,7 @@ int Board::eval(int team)
 		return (heuc1*2-heuc2);
 	else
 		return (heuc2*2-heuc1);
+	*/
 }
 //returns 2xn array with win conditions
 vector< vector<int> > Board::getWin()
@@ -211,7 +213,9 @@ vector< vector<int> > Board::getWin()
 	vector< vector<int> > winvec(2,vector<int>(0));
 	int cont1=0;
 	int cont2=0;
-	//vertical
+	// #
+	// #
+	// #
 	for(int i=0;i<6;i++)
 	{
 		for(int j=0;j<7;j++)
@@ -247,7 +251,9 @@ vector< vector<int> > Board::getWin()
 		cont1=0;
 		cont2=0;
 	}
-	//horizontal
+	//
+	// ###
+	//
 	for(int i=0;i<7;i++)
 	{
 		for(int j=0;j<6;j++)
@@ -283,11 +289,13 @@ vector< vector<int> > Board::getWin()
 		cont1=0;
 		cont2=0;
 	}
-	//ldia
-	for(int i=3;i<9;i++)
+	//   #  
+	//  #
+	// #
+	for(int i=0;i<=13;i++)
 	{
-		int j=0;
-		while(j<6&&i-j<7)
+		for(int j=0;j<6;j++)
+		if(i-j<7)
 		{
 			if(board[j][i-j]==1)
 			{
@@ -313,7 +321,6 @@ vector< vector<int> > Board::getWin()
 				cont1=0;
 				cont2=0;
 			}
-			j++;
 		}
 		if(cont1>=4||cont2>=4) return winvec;
 		winvec[0].resize(0);
@@ -321,11 +328,13 @@ vector< vector<int> > Board::getWin()
 		cont1=0;
 		cont2=0;
 	}
-	//rdia
+	// #  
+	//  #
+	//   #
 	for(int i=-2;i<=3;i++)
 	{
-		int j=0;
-		while(i+j<=6&&j<5)
+		for(int j=2;j<6;j++)
+		if(i+j<7)
 		{
 			if(board[j][i+j]==1)
 			{
@@ -351,7 +360,6 @@ vector< vector<int> > Board::getWin()
 				cont1=0;
 				cont2=0;
 			}
-			j++;
 		}
 		if(cont1>=4||cont2>=4) return winvec;
 		winvec[0].resize(0);

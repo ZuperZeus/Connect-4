@@ -19,9 +19,10 @@
 #include <iostream>
 #include <math.h>
 #include <vector>
-#include <string>
 #include <stdio.h>
-#include <algorithm>
+#include <unistd.h>
+#include <cstdlib>
+#include <signal.h>
 #include "libs/BoardFrame.h"
 #include "libs/SettingsFrame.h"
 #include "libs/StartFrame.h"
@@ -36,6 +37,9 @@ using namespace std;
 Frame *frame;
 int lastPressed;
 bool returnToTerm;
+void ctrl_c(int signum) {
+	returnToTerm=true;
+}
 void *keys(void *arg)
 {
 	KeyListener kl;
@@ -68,7 +72,6 @@ void *term(void *arg)
 			}
 			catch(ExitException e)
 			{
-				remove("libs/txt/curr.txt");
 				returnToTerm=true;
 				pthread_exit(NULL);
 			}
@@ -90,7 +93,11 @@ int main()
 	pthread_t term_thread;
 	pthread_create(&key_thread,NULL,&keys,NULL);
 	pthread_create(&term_thread,NULL,&term,NULL);
+	signal(SIGINT, ctrl_c);
 	while(!returnToTerm);
+	remove("libs/txt/curr.txt");
+	remove("libs/txt/temp.txt");
 	Frame::delBuffer();
 	system("tput cvvis");
+	return 0;
 }
