@@ -25,7 +25,7 @@ Stacks and Queues will be used to save some moves and settings.
 
 
 This diagram shows the first frame (in black), current frame options (green), and frames (blue). As we can see, the user starts with 4 options, 3 of which ideally start a game, and the last one just lets you configure colors.
-All green options will be chosen by arrows and enter, while blue options will be chosen via enter, or Backspace in the case of PauseFrame.
+All green options will be chosen by arrows and enter, while escaping will be done using either the 'x' or Backspace key.
 
 
 # Frames
