@@ -40,7 +40,7 @@ BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string 
 	currplay=cplay;
 	aiActive=ai;
 }
-Frame * BoardFrame::esc()
+void BoardFrame::saveGameToTemp()
 {
 	ofstream out;
 	vector< vector<int> > boardPieces=boardBackend.getBoard();
@@ -57,6 +57,10 @@ Frame * BoardFrame::esc()
 		out<<endl;
 	}
 	out.close();
+}
+Frame * BoardFrame::esc()
+{
+	saveGameToTemp();
 	Frame *pf=new PauseFrame();
 	return pf;
 }
@@ -73,6 +77,7 @@ void BoardFrame::updateFrame()
 	if(sel.second==1)
 		if(sel.first>=0)
 		{
+			saveGameToTemp();
 			currplay=3-currplay;
 			boardBackend.drop(sel.first,currplay);
 			sel.first=-1;

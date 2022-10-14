@@ -217,6 +217,44 @@ BoardFrame * SettingsFrame::getCurrentBoardFrame()
 	return bf;
 	
 }
+BoardFrame * SettingsFrame::getTempBoardFrame()
+{
+	vector<string> indexedColors={"\e[101m","\e[48;5;208m","\e[103m","\e[102m","\e[48;5;49m","\e[106m","\e[104m","\e[105m","\e[48;5;128m","\e[100m"};
+	vector<int> v;
+	v.resize(6);
+	ifstream intemp;
+	intemp.open("libs/txt/settings.txt",ios::in);
+	for(int i=0;i<6;i++)
+		v[i]=(int)intemp.get()-'0';
+	intemp.close();
+	Board b;
+	int active,ai=0,cplayer=2;
+	vector< vector<int> > mat;
+	mat.resize(6);
+	for(int i=0;i<6;i++)
+		mat[i].resize(7);
+	intemp.open("libs/txt/temp.txt",ios::in);
+	intemp>>active; // Active/Not Active
+	if(active)
+	{
+		intemp>>ai; // AI/Not AI
+		intemp>>cplayer; //Who goes next
+		for(int i=0;i<6;i++)
+			for(int j=0;j<7;j++)
+				intemp>>mat[i][j];
+		b=Board(mat);
+	}
+	intemp.close();
+	BoardFrame *bf = new BoardFrame(
+			indexedColors[v[1]],
+			indexedColors[v[2]],
+			indexedColors[v[3]],
+			indexedColors[v[4]],
+			indexedColors[v[5]],
+			b, ai, cplayer );
+	return bf;
+	
+}
 void SettingsFrame::deleteCurrentBoardFrame()
 {
 	ofstream outtemp;

@@ -40,6 +40,7 @@ class BoardFrame : public Frame
 		vector<int>xwin;
 		vector<int>ywin;
 		void updateFrame();
+		void saveGameToTemp();
 	public:
 		int currplay;
 		BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, Board bpieces, bool ai, int cplay);

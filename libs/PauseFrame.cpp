@@ -19,6 +19,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <stdio.h>
 #include "PauseFrame.h"
 #include "SettingsFrame.h"
 #include "StartFrame.h"
@@ -36,16 +37,27 @@ Frame * PauseFrame::select()
 	{
 		//save
 		//SettingsFrame::save();
-		return this;
+		//copy temp to curr
+		ifstream in;
+		ofstream out;
+		in.open("libs/txt/temp.txt",ios::binary);
+		out.open("libs/txt/curr.txt",ios::binary);
+		out<<in.rdbuf();
+		in.close();
+		out.close();
+		sel.first=1;
+		sel.second=1;
 	}
 	if(sel.first==1&&sel.second==0)
 	{
+		remove("libs/txt/temp.txt");
 		//Home
 		Frame *stf=new StartFrame();
 		return stf;
 	}
 	if(sel.first==0&&sel.second==1)
 	{
+		remove("libs/txt/temp.txt");
 		//term
 		throw ExitException();
 		return this;
@@ -53,16 +65,15 @@ Frame * PauseFrame::select()
 	if(sel.first==1&&sel.second==1)
 	{
 		//go back
-		return SettingsFrame::getCurrentBoardFrame();
+		return SettingsFrame::getTempBoardFrame();
 	}
 	return this;
 }
 Frame * PauseFrame::esc()
 {
-	//system("tput cvvis");
-	//Frame::delBuffer();
-	//exit(0);
-	return this;
+	sel.first=0;
+	sel.second=0;
+	return select();
 }
 void PauseFrame::updateFrame()
 {

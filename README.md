@@ -42,17 +42,13 @@ These are frames (blue bubbles in the mind map) which are practically finished
 
 <img src="./img/BoardFrame.png">
 
-<sup>it is _resizable_</sup>
-
-<img src="./img/small_BoardFrame.png">
-
 ## SettingsFrame
 
 <img src="./img/SettingsFrame.png">
 
-<sup>'tis _also_ resizable</sup>
+## SavedFrame
 
-<img src="./img/small_SettingsFrame.png">
+<img src="./img/SavedFrame.png">
 
 
 [Github link](https./img//github.co./img/ZuperZeu./img/Connect-./img/)

@@ -49,6 +49,7 @@ class SettingsFrame : public Frame
 		Frame * esc();
 		static BoardFrame * getCurrentBoardFrame();
 		static void deleteCurrentBoardFrame();
+		static BoardFrame * getTempBoardFrame();
 		void printFrame();
 };
 #endif
