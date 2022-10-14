@@ -25,6 +25,7 @@
 using namespace std;
 SavedFrame::SavedFrame()
 {
+	warning=-2;
 	xSize=3;
 	ySize=8;
 	framestring="";
@@ -40,10 +41,18 @@ Frame * SavedFrame::select()
 {
 	if(sel.second==2)
 	{
-		active[sel.first]=0;
-		out.open("libs/txt/"+to_string(sel.first)+".txt",ios::trunc);
-		out<<'0';
-		out.close();
+		if(warning==sel.first)
+		{
+			active[sel.first]=0;
+			out.open("libs/txt/"+to_string(sel.first)+".txt",ios::trunc);
+			out<<'0';
+			out.close();
+			warning=-2;
+		}
+		else
+		{
+			warning=sel.first;
+		}
 	}
 	else if(sel.second==1)
 	{
@@ -122,7 +131,15 @@ void SavedFrame::updateFrame()
 		center("\e[48;5;48;30m  Saved  \e[0m\n",9)+
 		center("\e[48;5;51;30m         \e[0m\n",9);
 	}
-	int height=(rows-titleh-12)/2;
+	string warningstring;
+	if(warning==sel.first)
+		warningstring=center("\e[91;3mWarning: this will delete previously saved game\e[0m",47)+"\n"+center("\e[91;3mPress enter Again to confirm\e[0m",28)+"\n";
+	else
+	{
+		warning=-2;
+		warningstring="\n\n";
+	}
+	int height=(rows-titleh-15)/2;
 	int width=(cols*4/5)/8;
 	string ssel="\e[30;102;5;4;53m";
 	string nsel="\e[97;42m";
@@ -134,7 +151,7 @@ void SavedFrame::updateFrame()
 		menu+="\n";
 	for(int i=0;i<width/2;i++)
 		cen+=" ";
-	menu+=center("\e[107;30m Save Current Game \e[0m",19);
+	menu+=warningstring+"\n"+center("\e[107;30m Save Current Game \e[0m",19);
 	menu+="\n";
 	menu+="\n";
 	menu+=center("",width*8);

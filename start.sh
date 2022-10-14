@@ -53,6 +53,7 @@ do
 		sleep .1
 	fi
 done
+printf "\r[##################################################] 100%%\n"
 tput cvvis
 if [[ -e ./Main ]]
 then

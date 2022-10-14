@@ -20,6 +20,7 @@
 #include <math.h>
 #include <vector>
 #include <string>
+#include <stdio.h>
 #include <algorithm>
 #include "libs/BoardFrame.h"
 #include "libs/SettingsFrame.h"
@@ -60,33 +61,17 @@ void *term(void *arg)
 		}
 		if(lastPressed!=0)
 		{
-			if(lastPressed==6)
+			try
 			{
-				try
-				{
-					frame=frame->esc();
-				}
-				catch(ExitException e)
-				{
-					returnToTerm=true;
-					pthread_exit(NULL);
-				}
+				if(lastPressed==6) frame=frame->esc();
+				else if(lastPressed==5) frame=frame->select();
+				else frame->move(lastPressed);
 			}
-			else if(lastPressed==5)
+			catch(ExitException e)
 			{
-				try
-				{
-					frame=frame->select();
-				}
-				catch(ExitException e)
-				{
-					returnToTerm=true;
-					pthread_exit(NULL);
-				}
-			}
-			else
-			{
-				frame->move(lastPressed);
+				remove("libs/txt/curr.txt");
+				returnToTerm=true;
+				pthread_exit(NULL);
 			}
 			lastPressed=0;
 			frame->printFrame(size.first,size.second);

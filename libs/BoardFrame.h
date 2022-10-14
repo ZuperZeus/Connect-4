@@ -40,7 +40,9 @@ class BoardFrame : public Frame
 		vector<int>xwin;
 		vector<int>ywin;
 		void updateFrame();
+		void getFrame(vector< vector<int> > boardPieces);
 		void saveGameToTemp();
+		void printAnimationFrame();
 	public:
 		int currplay;
 		BoardFrame(string p1, string p2, string fcol, string selcol, string wincol, Board bpieces, bool ai, int cplay);

@@ -28,6 +28,7 @@ class SavedFrame : public Frame
 	private:
 		void updateFrame();
 		string framestring;
+		int warning;
 	public:
 		vector<int> active;
 		ifstream in;
