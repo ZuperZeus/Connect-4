@@ -30,6 +30,7 @@ All green options will be chosen by arrows and enter, while escaping will be don
 
 # Frames
 These are the frames presented to the user in each menu. (AKA Blue bubbles in the mind map).
+
 They all change size to adapt to the terminal size, but look best when it's at least 50x50.
 ## StartFrame
 
