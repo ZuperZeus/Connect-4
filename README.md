@@ -50,7 +50,33 @@ They all change size to adapt to the terminal size, but look best when it's at l
 
 ## BoardFrame
 
-<img src="./img/BoardFrame.png">
+### Classic colors
+
+#### No selection
+
+<img src="./img/BoardFrame_classic_default.png">
+
+#### Selected Column
+
+<img src="./img/BoardFrame_classic_selected.png">
+
+#### Win condition
+
+<img src="./img/BoardFrame_classic_win.png">
+
+### Alternate colors
+
+#### Noir
+
+<img src="./img/BoardFrame_noir_selected.png">
+
+#### Red
+
+<img src="./img/BoardFrame_red_selected.png">
+
+#### Spring
+
+<img src="./img/BoardFrame_spring_selected.png">
 
 
 [Github link](https./img//github.co./img/ZuperZeu./img/Connect-./img/)
