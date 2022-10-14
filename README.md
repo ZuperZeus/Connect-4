@@ -49,8 +49,11 @@ They all change size to adapt to the terminal size, but look best when it's at l
 <img src="./img/SavedFrame.png">
 
 # BoardFrame
+These are some examples of how a BoardFrame looks.
 
 ## Classic colors
+
+These are the three states of a BoardFrame, the colors of which you can change in Settings
 
 ### No selection
 
@@ -65,6 +68,8 @@ They all change size to adapt to the terminal size, but look best when it's at l
 <img src="./img/BoardFrame_classic_win.png">
 
 ## Alternate colors
+
+These are some examples of color configuration.
 
 ### Noir
 
