@@ -48,7 +48,7 @@ They all change size to adapt to the terminal size, but look best when it's at l
 
 <img src="./img/SavedFrame.png">
 
-## BoardFrame
+# BoardFrame
 
 ### Classic colors
 
