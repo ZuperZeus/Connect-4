@@ -28,8 +28,9 @@ This diagram shows the first frame (in black), current frame options (green), an
 All green options will be chosen by arrows and enter, while blue options will be chosen via enter, or Backspace in the case of PauseFrame.
 
 
-# Current Completed Frames
-These are frames (blue bubbles in the mind map) which are practically finished
+# Frames
+These are the frames presented to the user in each menu
+(AKA Blue bubbles in the mind map)
 ## StartFrame
 
 <img src="./img/StartFrame.png">
