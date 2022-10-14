@@ -30,9 +30,7 @@ All green options will be chosen by arrows and enter, while escaping will be don
 
 # Frames
 These are the frames presented to the user in each menu.
-
-They are all resizable (within reasonable bounds) and look best when the terminal is at least 50x50.
-
+They all change size to adapt to the terminal size, but look best when it's at least 50x50.
 (AKA Blue bubbles in the mind map)
 ## StartFrame
 
