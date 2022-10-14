@@ -16,39 +16,27 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef SETTINGS_FRAME_H
-#define SETTINGS_FRAME_H
+#ifndef SAVED_FRAME_H
+#define SAVED_FRAME_H
 #include <iostream>
 #include <vector>
 #include <fstream>
 #include "Frame.h"
-#include "BoardFrame.h"
 using namespace std;
-class SettingsFrame : public Frame
+class SavedFrame : public Frame
 {
 	private:
-		//int rows;
-		//int cols;
-		vector<int> options;
-		vector<string> indexedcolors;
-		//int selX;
-		//int selY;
+		void updateFrame();
+		string framestring;
+	public:
+		vector<int> active;
 		ifstream in;
 		ofstream out;
-		string reset;
-		string framestring;
-		void updateFrame();
-	//	string center(int size);
-	//	void change(int val, int newint);
-	public:
-		SettingsFrame();
-		~SettingsFrame()=default;
-	//	void move(int x);
-		void save();
-		Frame * select();
+		SavedFrame();
+		~SavedFrame()=default;
+		void move(int x);
 		Frame * esc();
-		static BoardFrame * getCurrentBoardFrame();
-		static void deleteCurrentBoardFrame();
+		Frame * select();
 		void printFrame();
 };
 #endif

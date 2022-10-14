@@ -36,7 +36,7 @@ lbar=".................................................."
 cont=0
 while [[ -e /proc/$! ]]
 do
-	if [[ $cont -lt 50 ]]
+	if [[ $cont -le 50 ]]
 	then
 		printf "\r[" # $cont%%"
 		#lbar=""
@@ -44,7 +44,7 @@ do
 		do
 			printf "#"
 		done
-		for (( i = 50; i>= $cont; i-- ))
+		for (( i = 50; i> $cont; i-- ))
 		do
 			printf "."
 		done
@@ -54,7 +54,6 @@ do
 	fi
 done
 tput cvvis
-printf "\r[##################################################] 100%%\n"
 if [[ -e ./Main ]]
 then
 	echo "Compile done!"

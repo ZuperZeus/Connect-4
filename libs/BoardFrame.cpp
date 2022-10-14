@@ -18,6 +18,7 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
 #include "BoardFrame.h"
 #include "SettingsFrame.h"
 #include "PauseFrame.h"
@@ -41,6 +42,21 @@ BoardFrame::BoardFrame(string p1, string p2, string fcol, string selcol, string 
 }
 Frame * BoardFrame::esc()
 {
+	ofstream out;
+	vector< vector<int> > boardPieces=boardBackend.getBoard();
+	out.open("libs/txt/temp.txt",ios::trunc);
+	out<<1<<endl;
+	out<<aiActive<<endl;
+	out<<currplay<<endl;
+	for(int i=0;i<6;i++)
+	{
+		for(int j=0;j<7;j++)
+		{
+			out<<boardPieces[j][i]<<" ";
+		}
+		out<<endl;
+	}
+	out.close();
 	Frame *pf=new PauseFrame();
 	return pf;
 }

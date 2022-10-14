@@ -20,6 +20,7 @@
 #include <vector>
 #include <fstream>
 #include "SettingsFrame.h"
+#include "StartFrame.h"
 #include "BoardFrame.h"
 using namespace std;
 /*
@@ -52,17 +53,21 @@ SettingsFrame::SettingsFrame()
 }*/
 void SettingsFrame::save()
 {
-	//SAVE Current game
+	options[sel.second]=sel.first;
+	out.open("libs/txt/settings.txt",ios::trunc);
+	for(int i=0;i<6;i++)
+		out<<options[i];
+	out.close();
 }
 Frame * SettingsFrame::select()
 {
+	save();
 	return this;
 }
 Frame * SettingsFrame::esc()
 {
-	//Frame::delBuffer();
-	//cout<<"Reached this";
-	return this;
+	Frame *sf = new StartFrame();
+	return sf;
 }
 /*
  * Menu Structure: 
@@ -174,7 +179,7 @@ void SettingsFrame::printFrame()
 	this->clear();
 	cout<<framestring;
 }
-BoardFrame * SettingsFrame::getDefaultBoardFrame()
+BoardFrame * SettingsFrame::getCurrentBoardFrame()
 {
 	vector<string> indexedColors={"\e[101m","\e[48;5;208m","\e[103m","\e[102m","\e[48;5;49m","\e[106m","\e[104m","\e[105m","\e[48;5;128m","\e[100m"};
 	vector<int> v;
@@ -185,33 +190,39 @@ BoardFrame * SettingsFrame::getDefaultBoardFrame()
 		v[i]=(int)intemp.get()-'0';
 	intemp.close();
 	Board b;
+	int active,ai=0,cplayer=2;
+	vector< vector<int> > mat;
+	mat.resize(6);
+	for(int i=0;i<6;i++)
+		mat[i].resize(7);
+	intemp.open("libs/txt/curr.txt",ios::in);
+	intemp>>active; // Active/Not Active
+	if(active)
+	{
+		intemp>>ai; // AI/Not AI
+		intemp>>cplayer; //Who goes next
+		for(int i=0;i<6;i++)
+			for(int j=0;j<7;j++)
+				intemp>>mat[i][j];
+		b=Board(mat);
+	}
+	intemp.close();
 	BoardFrame *bf = new BoardFrame(
 			indexedColors[v[1]],
 			indexedColors[v[2]],
 			indexedColors[v[3]],
 			indexedColors[v[4]],
 			indexedColors[v[5]],
-			b, false, 1 );
+			b, ai, cplayer );
 	return bf;
-			
+	
 }
-BoardFrame * SettingsFrame::getDefaultBoardFrameAI()
+void SettingsFrame::deleteCurrentBoardFrame()
 {
-	vector<string> indexedColors={"\e[101m","\e[48;5;208m","\e[103m","\e[102m","\e[48;5;49m","\e[106m","\e[104m","\e[105m","\e[48;5;128m","\e[100m"};
-	vector<int> v;
-	v.resize(6);
-	ifstream intemp;
-	intemp.open("libs/txt/settings.txt",ios::in);
-	for(int i=0;i<6;i++)
-		v[i]=(int)intemp.get()-'0';
-	intemp.close();
-	Board b;
-	BoardFrame *bf = new BoardFrame(
-			indexedColors[v[1]],
-			indexedColors[v[2]],
-			indexedColors[v[3]],
-			indexedColors[v[4]],
-			indexedColors[v[5]],
-			b, true, 1 );
-	return bf;
+	ofstream outtemp;
+	outtemp.open("libs/txt/curr.txt",ios::trunc);
+	outtemp<<'0';
+	outtemp.close();
+
+
 }

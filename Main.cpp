@@ -24,6 +24,7 @@
 #include "libs/BoardFrame.h"
 #include "libs/SettingsFrame.h"
 #include "libs/StartFrame.h"
+#include "libs/SavedFrame.h"
 #include "libs/PauseFrame.h"
 #include "libs/Frame.h"
 #include "libs/Board.h"
@@ -73,7 +74,15 @@ void *term(void *arg)
 			}
 			else if(lastPressed==5)
 			{
-				frame=frame->select();
+				try
+				{
+					frame=frame->select();
+				}
+				catch(ExitException e)
+				{
+					returnToTerm=true;
+					pthread_exit(NULL);
+				}
 			}
 			else
 			{

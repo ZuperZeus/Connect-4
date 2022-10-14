@@ -22,6 +22,7 @@
 #include "PauseFrame.h"
 #include "SettingsFrame.h"
 #include "StartFrame.h"
+#include "ExitException.h"
 using namespace std;
 PauseFrame::PauseFrame()
 {
@@ -34,7 +35,7 @@ Frame * PauseFrame::select()
 	if(sel.first==0&&sel.second==0)
 	{
 		//save
-		SettingsFrame::save();
+		//SettingsFrame::save();
 		return this;
 	}
 	if(sel.first==1&&sel.second==0)
@@ -45,16 +46,14 @@ Frame * PauseFrame::select()
 	}
 	if(sel.first==0&&sel.second==1)
 	{
-		//saved
-		//SavedFrame *sf=new SavedFrame()
-		//return sf;
+		//term
+		throw ExitException();
 		return this;
 	}
 	if(sel.first==1&&sel.second==1)
 	{
-		//settings
-		SettingsFrame *sf=new SettingsFrame();
-		return sf;
+		//go back
+		return SettingsFrame::getCurrentBoardFrame();
 	}
 	return this;
 }
@@ -130,7 +129,7 @@ void PauseFrame::updateFrame()
 	"##       ##",
 	" #  ###  # ",
 	" #  # #  # ",
-	" #  # #  # "},
+	" #### #### "},
 	{
 	"           ",
 	" #         ",

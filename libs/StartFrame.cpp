@@ -21,6 +21,7 @@
 #include <fstream>
 #include "StartFrame.h"
 #include "SettingsFrame.h"
+#include "SavedFrame.h"
 #include "ExitException.h"
 using namespace std;
 StartFrame::StartFrame()
@@ -34,19 +35,18 @@ Frame * StartFrame::select()
 	if(sel.first==0&&sel.second==0)
 	{
 		//ai
-		return SettingsFrame::getDefaultBoardFrameAI();
+		return SettingsFrame::getCurrentBoardFrame();
 	}
 	if(sel.first==1&&sel.second==0)
 	{
 		//1v1
-		return SettingsFrame::getDefaultBoardFrame();
+		return SettingsFrame::getCurrentBoardFrame();
 	}
 	if(sel.first==0&&sel.second==1)
 	{
 		//saved
-		//SavedFrame *sf=new SavedFrame()
-		//return sf;
-		return this;
+		Frame *sf=new SavedFrame();
+		return sf;
 	}
 	if(sel.first==1&&sel.second==1)
 	{
