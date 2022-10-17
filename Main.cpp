@@ -89,26 +89,15 @@ int main()
 	frame = &st;
 	system("tput civis");
 	Frame::newBuffer();
+	signal(SIGINT, ctrl_c);
 	pthread_t key_thread;
 	pthread_t term_thread;
 	pthread_create(&key_thread,NULL,&keys,NULL);
 	pthread_create(&term_thread,NULL,&term,NULL);
-	signal(SIGINT, ctrl_c);
 	while(!returnToTerm);
 	remove("libs/txt/curr.txt");
 	remove("libs/txt/temp.txt");
 	Frame::delBuffer();
 	system("tput cvvis");
-	/*vector< vector<int> > v{
-		{0,0,0,0,0,0},
-		{0,0,0,0,0,0},
-		{0,0,0,0,0,0},
-		{0,0,0,0,0,0},
-		{0,0,0,0,0,0},
-		{0,0,0,0,0,0},
-		{1,0,2,0,0,0}};
-	Board b(v);
-	cout<<b.eval(9,"5543421")<<endl;
-	*/
 	return 0;
 }

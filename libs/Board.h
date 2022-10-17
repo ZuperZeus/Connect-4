@@ -32,8 +32,6 @@ class Board
 		bool drop(int sel, int player);
 		bool canDrop(int sel);
 		int checkWin();
-		int mhe(string line);
-		vector<int> preProcessedConditions(string line);
 		vector< vector<int> > getWin();
 		int eval(int diff, string line);
 		vector< vector<int> > getBoard();
