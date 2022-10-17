@@ -90,28 +90,6 @@ int Board::eval(int diff, string line)
 				return pairv[6].first;
 		else// if(canDrop(x))
 			return rand()%7;
-	/*
-	if(diff==0)
-		return pairv[0].first;
-	else if(diff==1)
-		return pairv[1].first;
-	else if(diff==2)
-		return pairv[2].first;
-	else if(diff==3)
-		return pairv[3].first;
-	else if(diff==4)
-		return pairv[rand()%4].first;
-	else if(diff==5)
-		return rand()%7;
-	else if(diff==6)
-		return pairv[4+rand()%3].first;
-	else if(diff==7)
-		return pairv[4].first;
-	else if(diff==8)
-		return pairv[5].first;
-	else if(diff==9)
-		return pairv[6].first;
-		*/
 	return -1;
 }
 //returns 2xn array with win conditions
