@@ -15,8 +15,8 @@
  #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #!/bin/bash
+g++ -o Main Main.cpp libs/*.cpp libs/Solver/Solver.cpp &
 echo "Compiling"
-g++ -o Main Main.cpp libs/*.cpp &
 tput civis
 lbar=".................................................."
 cont=0
@@ -39,10 +39,11 @@ do
 		sleep .1
 	fi
 done
-printf "\r[##################################################] 100%%\n"
+
 tput cvvis
 if [[ -e ./Main ]]
 then
+	printf "\r[##################################################] 100%%\n"
 	echo "Compile done!"
 	echo "Running"
 	./Main

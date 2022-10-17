@@ -40,7 +40,7 @@ class SettingsFrame : public Frame
 		void save();
 		Frame * select();
 		Frame * esc();
-		static BoardFrame * getCurrentBoardFrame(int ai);
+		static BoardFrame * getCurrentBoardFrame(bool aiActive);
 		static void deleteCurrentBoardFrame();
 		static BoardFrame * getTempBoardFrame();
 		void printFrame();

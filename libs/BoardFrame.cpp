@@ -66,7 +66,7 @@ Frame * BoardFrame::select()
 {
 	if(boardBackend.checkWin()==0)
 	{
-		if(sel.first>=0)
+		if(sel.first>=0&&boardBackend.canDrop(sel.first))
 		{
 			int column=sel.first;
 			sel.first=-1;
@@ -88,38 +88,17 @@ Frame * BoardFrame::select()
 			moves=moves+(char)(column+'1');
 			saveGameToTemp();
 			printFrame();
-			/*if(boardBackend.checkWin()==0)
-			if(aiActive)
-			{
-				//int column=boardBackend.eval(aidiff,moves);
-				int column=boardBackend.eval(6,moves);
-				//srand(time(NULL));
-				//int column=rand()%7;
-				vector< vector<int> > bp=boardBackend.getBoard();
-				for(int i=0;i<6;i++)
-				{
-					if(bp[column][i+1]==0)
-					{
-						int decsec=10000;
-						bp[column][i]=3-currplay;
-						getFrame(bp);
-						printAnimationFrame();
-						usleep((7-i)*(7-i)*decsec);
-						bp[column][i]=0;
-					}
-				}
-				currplay=3-currplay;
-				boardBackend.drop(column,currplay);
-				moves=moves+(char)(column+'1');
-				saveGameToTemp();
-				printFrame();
-			}*/
 		}
 	}
 	else
 	{
 		remove("libs/txt/curr.cpp");
 		remove("libs/txt/temp.cpp");
+	}
+	if(boardBackend.checkWin()==0&&aiActive&&currplay==1)
+	{
+		sel.first=boardBackend.eval(aidiff,moves);
+		select();
 	}
 	sel.second=0;
 	return this;
@@ -272,7 +251,10 @@ void BoardFrame::printFrame()
 			else if(board[i][j]==4) cout<<selectedColor<<" "<<reset;
 			else if(board[i][j]==5) cout<<winColor<<" "<<reset;
 		}
+		if(i!=board.size()-1)
 		cout<<endl;
+		else
+		cout<<flush;
 	}
 }
 void BoardFrame::printAnimationFrame()

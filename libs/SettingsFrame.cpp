@@ -37,7 +37,7 @@ SettingsFrame::SettingsFrame()
 	xSize=6;
 	ySize=10;
 	options.resize(6);
-	indexedcolors={"\e[101m","\e[48;5;208m","\e[103m","\e[102m","\e[48;5;49m","\e[106m","\e[104m","\e[105m","\e[48;5;128m","\e[100m"};
+	indexedcolors={"\e[101m","\e[48;5;208m","\e[103m","\e[102m","\e[106m","\e[104m","\e[105m","\e[48;5;128m","\e[100m","\e[47m"};
 	reset="\e[0m";
 	framestring="";
 	//selY=-1;
@@ -136,10 +136,8 @@ void SettingsFrame::updateFrame()
 			for(int k=0;k<width;k++)
 			{
 				line+=aicolors[j];
-				if(sel.second==0) line+=ssel;
-				else line+=nsel;
-				if(sel.second==0&&sel.first==j) line+="▒";
-				else if(options[0]==j&&sel.second!=0) line+="▒";
+				if(sel.second==0&&sel.first==j) line+=ssel+"▒";
+				else if(options[0]==j) line+=nsel+"▒";
 				else line+=" ";
 				line+="\e[0m";
 			}
@@ -159,10 +157,10 @@ void SettingsFrame::updateFrame()
 				for(int k=0;k<width;k++)
 				{
 					line+=indexedcolors[j];
-					if(sel.second==a) line+=ssel;
-					else line+=nsel;
-					if(sel.second==a&&sel.first==j) line+="▒";
-					else if(options[a]==j&&sel.second!=a) line+="▒";
+					//if(sel.second==a) line+=ssel;
+					//else line+=nsel;
+					if(sel.second==a&&sel.first==j) line+=ssel+"▒";
+					else if(options[a]==j) line+=nsel+"▒";
 					else line+=" ";
 					line+="\e[0m";
 				}
@@ -179,9 +177,9 @@ void SettingsFrame::printFrame()
 	this->clear();
 	cout<<framestring;
 }
-BoardFrame * SettingsFrame::getCurrentBoardFrame(int aiActive)
+BoardFrame * SettingsFrame::getCurrentBoardFrame(bool aiActive)
 {
-	vector<string> indexedColors={"\e[101m","\e[48;5;208m","\e[103m","\e[102m","\e[48;5;49m","\e[106m","\e[104m","\e[105m","\e[48;5;128m","\e[100m"};
+	vector<string> indexedColors={"\e[101m","\e[48;5;208m","\e[103m","\e[102m","\e[106m","\e[104m","\e[105m","\e[48;5;128m","\e[100m","\e[47m"};
 	vector<int> v;
 	v.resize(6);
 	ifstream intemp;
@@ -198,6 +196,7 @@ BoardFrame * SettingsFrame::getCurrentBoardFrame(int aiActive)
 	if(active)
 	{
 		intemp>>ai; // AI/Not AI
+		aiActive=(ai==1);
 		intemp>>cplayer; //Who goes next
 		getline(intemp,moves);
 		getline(intemp,moves);
@@ -207,8 +206,6 @@ BoardFrame * SettingsFrame::getCurrentBoardFrame(int aiActive)
 			cplay=3-cplay;
 		}
 	}
-	else
-		ai=aiActive;
 	intemp.close();
 	BoardFrame *bf = new BoardFrame(
 			indexedColors[v[1]],
@@ -216,13 +213,13 @@ BoardFrame * SettingsFrame::getCurrentBoardFrame(int aiActive)
 			indexedColors[v[3]],
 			indexedColors[v[4]],
 			indexedColors[v[5]],
-			b, ai, cplayer, v[0], moves);
+			b, aiActive, cplayer, v[0], moves);
 	return bf;
 	
 }
 BoardFrame * SettingsFrame::getTempBoardFrame()
 {
-	vector<string> indexedColors={"\e[101m","\e[48;5;208m","\e[103m","\e[102m","\e[48;5;49m","\e[106m","\e[104m","\e[105m","\e[48;5;128m","\e[100m"};
+	vector<string> indexedColors={"\e[101m","\e[48;5;208m","\e[103m","\e[102m","\e[106m","\e[104m","\e[105m","\e[48;5;128m","\e[100m","\e[47m"};
 	vector<int> v;
 	v.resize(6);
 	ifstream intemp;
