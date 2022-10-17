@@ -84,4 +84,4 @@ These are some examples of color configuration.
 <img src="./img/BoardFrame_spring_selected.png">
 
 
-[Github link](https./img//github.co./img/ZuperZeu./img/Connect-./img/)
+[Github link](https://github.com/ZuperZeus/Connect-4/)
