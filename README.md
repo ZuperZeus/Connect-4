@@ -19,7 +19,7 @@ Files will be used to store previous settings, and any saved games.
 Exceptions will be detected and, if the program is unable to continue, game will be saved. Vectors will be used to store and show the board.
 Stacks and Queues will be used to save some moves and settings.
 
-The proyect will mainly be a TUI frontend, so for simplicity, i will use a modified version of [PascalPons's](https://github.com/PascalPons) open source c++ Connect Four [Solver](https://github.com/PascalPons/connect4), explained in detail [here.](http://blog.gamesolver.org/)
+The proyect will mainly be a TUI frontend, so for simplicity, i will use a modified version of [PascalPons's](https://github.com/PascalPons) open source C++ [Connect Four Solver](https://github.com/PascalPons/connect4), explained in detail [here.](http://blog.gamesolver.org/)
 
 
 ## This diagram shows Frames in blue, options in green
