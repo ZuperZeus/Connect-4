@@ -193,7 +193,7 @@ BoardFrame * SettingsFrame::getCurrentBoardFrame(bool aiActive)
 	intemp.open("libs/txt/curr.txt",ios::in);
 	intemp>>active; // Active/Not Active
 	int cplay=1;
-	if(active)
+	if(active==1)
 	{
 		intemp>>ai; // AI/Not AI
 		aiActive=(ai==1);
